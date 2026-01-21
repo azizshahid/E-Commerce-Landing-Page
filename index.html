@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artisan Crafts - Handcrafted with Care</title>
+    <meta
+      name="description"
+      content="Discover handcrafted, ethically sourced artisan products. Small-batch quality, made by skilled artisans with care."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="header-nav">
+        <div class="logo-container">
+          <a href="#" class="logo"> Artisan </a>
+        </div>
+        <div class="nav-links">
+          <div class="nav-item">
+            <a href="#" class="nav-link">
+              Home Decor <span class="nav-arrow">▾</span>
+            </a>
+            <div class="dropdown">
+              <a href="#">Wall Art</a>
+              <a href="#">Ceramics</a>
+              <a href="#">Lighting</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#" class="nav-link">
+              Art <span class="nav-arrow">▾</span>
+            </a>
+            <div class="dropdown">
+              <a href="#">Paintings</a>
+              <a href="#">Sculptures</a>
+              <a href="#">Prints</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#" class="nav-link">
+              Pet Supplies <span class="nav-arrow">▾</span>
+            </a>
+            <div class="dropdown">
+              <a href="#">Beds</a>
+              <a href="#">Bowls</a>
+              <a href="#">Toys</a>
+            </div>
+          </div>
+        </div>
+        <div class="search-container">
+          <input
+            type="search"
+            placeholder="Search for anything"
+            aria-label="Search"
+            class="search-input"
+          />
+          <button class="search-btn">🔍</button>
+        </div>
+        <div class="cust-panel">
+          <div class="cust-icon user-icon" onclick="openLogin()">
+            <svg xmlns=" " viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM14.5946 18.8115C14.5327 18.5511 14.5 18.2794 14.5 18C14.5 17.7207 14.5327 17.449 14.5945 17.1886L13.6029 16.6161L14.6029 14.884L15.5952 15.4569C15.9883 15.0851 16.4676 14.8034 17 14.6449V13.5H19V14.6449C19.5324 14.8034 20.0116 15.0851 20.4047 15.4569L21.3971 14.8839L22.3972 16.616L21.4055 17.1885C21.4673 17.449 21.5 17.7207 21.5 18C21.5 18.2793 21.4673 18.551 21.4055 18.8114L22.3972 19.3839L21.3972 21.116L20.4048 20.543C20.0117 20.9149 19.5325 21.1966 19.0001 21.355V22.5H17.0001V21.3551C16.4677 21.1967 15.9884 20.915 15.5953 20.5431L14.603 21.1161L13.6029 19.384L14.5946 18.8115ZM18 19.5C18.8284 19.5 19.5 18.8284 19.5 18C19.5 17.1716 18.8284 16.5 18 16.5C17.1716 16.5 16.5 17.1716 16.5 18C16.5 18.8284 17.1716 19.5 18 19.5Z"
+              ></path>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </div>
+          <div class="cust-icon cart-icon" onclick="toggleCart()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"
+              ></path>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Handcrafted Essentials, Crafted to Last</h1>
+        <p>
+          Every piece is thoughtfully made by skilled artisans using ethically
+          sourced materials — produced in small batches for quality you can
+          feel, not mass-manufactured volume.
+        </p>
+        <!-- <h2>Our Philosophy</h2>
+        <p>
+          We partner directly with artisans around the world, preserving
+          traditional craftsmanship while ensuring fair wages and sustainable
+          practices. Each item is made in limited batches, with care, patience,
+          and purpose — never rushed, never outsourced.
+        </p>
+        <div class="trust-cue">
+          <span>✓</span>
+          <span>Free shipping on orders over $75</span>
+        </div> -->
+        <div class="hero-ctas">
+          <a href="#products" class="btn btn-primary">Shop Best Sellers</a>
+          <a href="#collections" class="btn btn-secondary"
+            >Explore Collections</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Pillars -->
+    <section class="section trust-section">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <h3>Handcrafted by Artisans</h3>
+          <!-- <p>
+            Each piece is made with care by skilled craftspeople who take pride
+            in their work.
+          </p> -->
+        </div>
+
+        <div class="trust-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <h3>Ethically Sourced</h3>
+          <!-- <p>
+            We work with suppliers who share our commitment to sustainable and
+            fair practices.
+          </p> -->
+        </div>
+
+        <div class="trust-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+            ></path>
+          </svg>
+          <h3>Small-Batch Quality</h3>
+          <!-- <p>
+            Limited production runs ensure attention to detail and lasting
+            durability.
+          </p> -->
+        </div>
+
+        <div class="trust-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <h3>Secure & Fast Delivery</h3>
+          <!-- <p>
+            Your order is carefully packaged and ships within 2-3 business days.
+          </p> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="section">
+      <h2 class="section-title">Best Sellers</h2>
+      <p class="product-trust">Trusted by 10,000+ customers • Rated 4.8/5</p>
+      <div class="carousel" id="bestSellerCarousel">
+        <div class="carousel-track">
+          <div class="product-card">
+            <img
+              src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+              alt="Artisan Tea Set"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Artisan Tea Set</h3>
+                <p>Limited Batch</p>
+              </div>
+              <p class="product-price">$89.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(127 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+              alt="Artisan Tea Set"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Artisan Tea Set</h3>
+                <p>Limited Batch</p>
+              </div>
+              <p class="product-price">$89.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(127 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+              alt="Artisan Tea Set"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Artisan Tea Set</h3>
+                <p>Limited Batch</p>
+              </div>
+              <p class="product-price">$89.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(127 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/featured-products/Handwoven Wool Blanket.jpg"
+              alt="Woven Basket Collection"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Handwoven Wool Blanket</h3>
+                <p>Best Seller</p>
+              </div>
+              <p class="product-price">$64.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(89 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/category/Cozy Ceramic Corner.png"
+              alt="Ceramic Bowl Set"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Ceramic Set</h3>
+                <p>Limited Batch</p>
+              </div>
+              <p class="product-price">$72.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(156 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/category/Handmade Jewelry Display.png"
+              alt="Artisan Jewelry"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Silver Necklace</h3>
+                <p>Best Seller</p>
+              </div>
+              <p class="product-price">$118.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(203 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/category/Bohemian Dresses in Sunlight.png"
+              alt="Artisan Jewelry"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Silver Necklace</h3>
+                <p>Best Seller</p>
+              </div>
+              <p class="product-price">$118.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(203 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png"
+              alt="Artisan Jewelry"
+              class="product-image"
+            />
+            <div class="product-info">
+              <div class="info">
+                <h3 class="product-name">Silver Necklace</h3>
+                <p>Best Seller</p>
+              </div>
+              <p class="product-price">$118.00</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span>(203 reviews)</span>
+              </div>
+              <div class="product-button">
+                <button
+                  class="add-to-cart"
+                  onclick="addToCart('Artisan Tea Set', 89, '/placeholder.svg?height=320&width=280')"
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid-Page CTA -->
+
+    <section class="section mid-cta">
+      <a href="#products" class="btn btn-primary">Explore More</a>
+    </section>
+
+    <!-- Collections 
+    <section id="collections" class="section">
+      <h2 class="section-title">Explore Our Collections</h2>
+      <div class="collections-grid">
+        <div class="collection-card">
+          <img
+            src="/placeholder.svg?height=400&width=400"
+            alt="Tea Sets"
+            class="collection-image"
+          />
+          <div class="collection-overlay">
+            <h3 class="collection-name">Tea Sets</h3>
+            <p class="collection-cta">View Collection →</p>
+          </div>
+        </div>
+
+        <div class="collection-card">
+          <img
+            src="/placeholder.svg?height=400&width=400"
+            alt="Home Decor"
+            class="collection-image"
+          />
+          <div class="collection-overlay">
+            <h3 class="collection-name">Home Decor</h3>
+            <p class="collection-cta">View Collection →</p>
+          </div>
+        </div>
+
+        <div class="collection-card">
+          <img
+            src="/placeholder.svg?height=400&width=400"
+            alt="Jewelry"
+            class="collection-image"
+          />
+          <div class="collection-overlay">
+            <h3 class="collection-name">Jewelry</h3>
+            <p class="collection-cta">View Collection →</p>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+    < Brand Story > 
+    <section class="section brand-story">
+      <h2 class="section-title">Our Story</h2>
+      <div class="brand-story-content">
+        <p>
+          We create everyday objects with intention—crafted by skilled artisans
+          using time-honored techniques and ethically sourced materials.
+        </p>
+        <p>
+          We partner directly with makers to ensure fair wages, small-batch
+          quality, and lasting durability. Every piece is made to outlive trends
+          and earn its place in your home.
+        </p>
+      </div>
+    </section> -->
+
+    <!-- Social Proof -->
+    <section class="section">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "The quality exceeded my expectations. Each piece feels unique and
+            special. I love supporting artisans who put real care into their
+            work."
+          </p>
+          <p class="testimonial-author">— Sarah M.</p>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Beautiful craftsmanship and fast shipping. The tea set is stunning
+            and has become my daily ritual. Worth every penny."
+          </p>
+          <p class="testimonial-author">— James L.</p>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">
+            "I appreciate the ethical sourcing and the attention to detail.
+            These aren't just products—they're pieces of art with soul."
+          </p>
+          <p class="testimonial-author">— Emily R.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>What is your shipping policy?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We offer free standard shipping on all orders over $75. Orders
+              typically ship within 2-3 business days and arrive within 5-7
+              business days. Express shipping is available at checkout.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>What is your return policy?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              We offer a 30-day return policy on all items. Products must be
+              unused and in original condition. Contact us to initiate a return
+              and receive a prepaid shipping label.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Is my payment information secure?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, we use industry-standard SSL encryption to protect your
+              payment information. We accept all major credit cards and PayPal
+              for secure transactions.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>How long does delivery take?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Standard delivery takes 5-7 business days after your order ships.
+              Express shipping (2-3 business days) is available at checkout.
+              You'll receive a tracking number once your order ships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final-cta">
+      <h2>Start Your Collection Today</h2>
+      <p>Discover handcrafted quality that's built to last a lifetime</p>
+      <a href="#products" class="btn btn-primary">Shop Now</a>
+      <p class="trust-text">
+        Free shipping over $75 • 30-day returns • Secure checkout
+      </p>
+
+      <!-- Footer -->
+      <footer id="contact">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3>Handmade Treasures</h3>
+              <p>
+                Connecting artisans with craft lovers worldwide, celebrating the
+                beauty of handmade goods.
+              </p>
+              <div class="social-icons">
+                <a
+                  href="#"
+                  class="icon-circle icon-circle--sm"
+                  aria-label="Facebook"
+                >
+                  <img src="./Logos/facebook-fill.svg" alt="Facebook" />
+                </a>
+
+                <a
+                  href="#"
+                  class="icon-circle icon-circle--sm"
+                  aria-label="Instagram"
+                >
+                  <img src="./Logos/instagram-fill.svg" alt="Instagram" />
+                </a>
+
+                <a
+                  href="#"
+                  class="icon-circle icon-circle--sm"
+                  aria-label="Twitter"
+                >
+                  <img src="./Logos/twitter-fill.svg" alt="Twitter" />
+                </a>
+
+                <a
+                  href="#"
+                  class="icon-circle icon-circle--sm"
+                  aria-label="Pinterest"
+                >
+                  <img src="./Logos/pinterest-fill.svg" alt="Pinterest" />
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/shop">Shop</a>
+                <a href="#faq">FAQ</a>
+                <a href="/contact">Contact</a>
+              </div>
+            </div>
+
+            <div class="footer-section">
+              <h4>For Sellers</h4>
+              <div class="footer-links">
+                <a href="/become-seller">Become a Seller</a>
+                <a href="/seller-guide">Seller Guide</a>
+                <a href="/seller-support">Seller Support</a>
+                <a href="/terms">Terms of Service</a>
+              </div>
+            </div>
+
+            <div class="footer-section">
+              <h4>We Accept</h4>
+
+              <div class="payment-methods">
+                <a href="#" aria-label="Visa" class="payment-icon">
+                  <i class="ri-visa-fill"></i>
+                </a>
+
+                <a href="#" aria-label="Mastercard" class="payment-icon">
+                  <i class="ri-mastercard-fill"></i>
+                </a>
+
+                <a href="#" aria-label="PayPal" class="payment-icon">
+                  <i class="ri-paypal-fill"></i>
+                </a>
+
+                <a href="#" aria-label="Apple Pay" class="payment-icon">
+                  <i class="ri-apple-fill"></i>
+                </a>
+              </div>
+
+              <p class="secure-text">Secure payments powered by Stripe</p>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>
+              &copy; 2024 Handmade Treasures. All rights reserved. Made with ❤️
+              for artisans worldwide.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-overlay" onclick="toggleCart()"></div>
+      <div class="cart-drawer">
+        <div class="cart-header">
+          <h2>Your Cart</h2>
+          <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+          <div class="empty-cart">Your cart is empty</div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="btn btn-primary" style="width: 100%">
+            Proceed to Checkout
+          </button>
+          <p class="cart-trust">
+            Secure checkout • 30-day returns • Free shipping over $75
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
