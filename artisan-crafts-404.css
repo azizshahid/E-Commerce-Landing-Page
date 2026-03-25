@@ -1,0 +1,240 @@
+/* =====================================================
+   Artisan Crafts — 404 Page Styles
+   Add this file to your project and link it AFTER styles.css
+   Only contains new rules — reuses all existing variables & classes
+   ===================================================== */
+
+/* ── Page fade-in ── */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* ── Page layout ── */
+.page-404 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Clears the fixed header height and adds bottom breathing room */
+  padding: 100px 20px 60px;
+  min-height: 100vh;
+}
+
+.error-container {
+  text-align: center;
+  max-width: 600px;
+}
+
+/* ── Spinning craft circle illustration ── */
+.craft-illustration {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+}
+
+.craft-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* Reuses --color-sand and --color-beige variables */
+  background: linear-gradient(135deg, #f5ede0, var(--color-sand));
+  border: 2px dashed rgba(201, 165, 138, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: craftSpin 12s linear infinite;
+}
+
+.craft-inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-sand);
+  border: 1px solid rgba(201, 165, 138, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Counter-rotates so icon stays upright -->  */
+  animation: craftSpin 12s linear infinite reverse;
+}
+
+.craft-inner i {
+  font-size: 2rem;
+  /* Uses --color-clay variable from styles.css */
+  color: var(--color-clay);
+}
+
+@keyframes craftSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Big 404 number ── */
+.error-code {
+  font-family: var(--font-serif);
+  font-size: clamp(5.5rem, 16vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  /* Uses --color-charcoal from styles.css */
+  color: var(--color-charcoal);
+  letter-spacing: -3px;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+/* Hand-drawn wavy underline */
+.error-code::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 4px;
+  margin: 6px auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8'%3E%3Cpath d='M2 5 Q30 2 60 5 Q90 8 120 4 Q150 1 180 5 Q195 7 198 5' stroke='%23c9a58a' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ── Small label chip (uses --color-clay) ── */
+.error-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-beige);
+  border: 1px solid rgba(201, 165, 138, 0.35);
+  color: var(--color-clay);
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 1.2rem 0 1.4rem;
+}
+
+/* ── Text ── */
+.error-title {
+  /* h2 picks up --font-serif via .section-title, but for h1 we set it here -->  */
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 4vw, 1.85rem);
+  color: var(--color-charcoal);
+  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+
+.error-description {
+  font-size: 0.97rem;
+  color: #9a7d6a;
+  line-height: 1.85;
+  max-width: 440px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ── Decorative separator ── */
+.error-separator {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 280px;
+  margin: 0 auto 2.5rem;
+}
+
+.error-sep-line {
+  flex: 1;
+  height: 1px;
+  /* Uses --color-clay toned down */
+  background: linear-gradient(90deg, transparent, var(--color-clay));
+  opacity: 0.4;
+}
+
+.error-sep-line.right {
+  background: linear-gradient(90deg, var(--color-clay), transparent);
+  opacity: 0.4;
+}
+
+.error-sep-icon {
+  color: var(--color-clay);
+  font-size: 1rem;
+}
+
+/* ── Button group ── */
+.error-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/* 
+  Primary & secondary buttons already exist in styles.css as .btn .btn-primary / .btn .btn-secondary
+  No new button classes needed — just apply them directly in HTML
+*/
+
+/* ── Trust chips row ── */
+.trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 1.8rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--color-white);
+  border: 1px solid rgba(201, 165, 138, 0.25);
+  color: #9a7d6a;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.77rem;
+}
+
+.chip i {
+  color: var(--color-clay);
+}
+
+/* ── Suggestion links ── */
+.error-suggestions {
+  margin-top: 1.8rem;
+  font-size: 0.85rem;
+  color: #9a7d6a;
+}
+
+.error-suggestions a {
+  color: var(--color-clay);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dashed rgba(201, 165, 138, 0.6);
+  padding-bottom: 1px;
+  transition: all 0.28s ease;
+}
+
+.error-suggestions a:hover {
+  color: var(--color-charcoal);
+  border-bottom-style: solid;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .error-btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-btn-group a,
+  .error-btn-group button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .trust-chips {
+    flex-direction: column;
+    align-items: center;
+  }
+}
