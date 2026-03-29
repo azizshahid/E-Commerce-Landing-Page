@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions – Artisan Crafts</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./artisan-styles-additions.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="header-nav">
+      <div class="logo-container">
+        <a href="./index.html" class="logo">Artisan</a>
+      </div>
+      <div class="nav-links">
+        <div class="nav-item"><a href="./index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="./index.html#products" class="nav-link">Shop</a></div>
+        <div class="nav-item"><a href="./about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></div>
+      </div>
+      <div class="cust-panel">
+        <div class="cust-icon" onclick="location.href='./index.html'">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"/>
+          </svg>
+        </div>
+        <div class="cust-icon cart-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686Z"/>
+          </svg>
+          <span class="cart-count">0</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag"><i class="ri-file-text-line"></i>&nbsp; Legal</div>
+      <h1>Terms &amp; Conditions</h1>
+      <p>Please read these terms carefully before placing an order or using our platform.</p>
+      <div class="breadcrumb">
+        <a href="./index.html">Home</a><span>&rsaquo;</span>Terms &amp; Conditions
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMS CONTENT -->
+  <section class="inner-section section">
+    <div class="container">
+
+      <div class="terms-meta">
+        Last updated: <strong>January 2024</strong> &nbsp;|&nbsp;
+        Effective: <strong>1 January 2024</strong> &nbsp;|&nbsp;
+        Applies to all purchases and use of Artisan Crafts.
+      </div>
+
+      <div class="terms-layout">
+
+        <!-- Sticky TOC -->
+        <aside class="terms-toc">
+          <h4>Contents</h4>
+          <ul>
+            <li><a href="#intro"         class="toc-active">1. Introduction</a></li>
+            <li><a href="#orders">2. Orders &amp; Purchases</a></li>
+            <li><a href="#shipping">3. Shipping &amp; Delivery</a></li>
+            <li><a href="#returns">4. Returns &amp; Refunds</a></li>
+            <li><a href="#products">5. Product Descriptions</a></li>
+            <li><a href="#payments">6. Payments</a></li>
+            <li><a href="#sellers">7. Seller Guidelines</a></li>
+            <li><a href="#privacy">8. Privacy Policy</a></li>
+            <li><a href="#ip">9. Intellectual Property</a></li>
+            <li><a href="#contact-terms">10. Contact</a></li>
+          </ul>
+        </aside>
+
+        <!-- 
+          Terms sections use the EXISTING .faq-item, .faq-question, .faq-answer, .faq-icon
+          classes from styles.css — no new accordion CSS needed.
+        -->
+        <div class="terms-content faq-container">
+
+          <div class="faq-item active" id="intro">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>1. Introduction <span class="terms-num">01</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Welcome to Artisan Crafts. By placing an order, creating an account, or browsing our platform, you agree to be bound by these terms and conditions. These terms govern all transactions between buyers, sellers, and the Artisan Crafts platform.</p>
+              <p>We reserve the right to update these terms at any time. Your continued use of the platform following any changes constitutes your acceptance.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="orders">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>2. Orders &amp; Purchases <span class="terms-num">02</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>All orders placed through Artisan Crafts are subject to acceptance by the platform and the relevant seller. You will receive an email confirmation once your order is accepted and in production.</p>
+              <ul>
+                <li>Because many items are made to order or in small batches, processing times vary by seller. Estimated times are shown on each product page.</li>
+                <li>You may cancel an order within 24 hours of placement, provided production has not commenced.</li>
+                <li>Custom and bespoke orders cannot be cancelled once production has begun.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item" id="shipping">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>3. Shipping &amp; Delivery <span class="terms-num">03</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Delivery times depend on the artisan's location and your shipping address. Estimated delivery windows are shown at checkout.</p>
+              <ul>
+                <li>Free standard shipping is available on all orders over $75.</li>
+                <li>Express shipping is available at checkout for an additional fee.</li>
+                <li>International orders may be subject to customs duties and import taxes. These are the buyer's responsibility.</li>
+                <li>Artisan Crafts is not responsible for delays caused by carriers, customs, or circumstances outside our control.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item" id="returns">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>4. Returns &amp; Refunds <span class="terms-num">04</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>We offer a 30-day returns policy on all standard items. Items must be unused, in original condition, and returned in original packaging.</p>
+              <ul>
+                <li><strong>Defective or incorrect items:</strong> Full refund or free replacement, no return shipping required.</li>
+                <li><strong>Change of mind:</strong> Return within 30 days. Buyer covers return shipping. Refund issued within 5–7 working days.</li>
+                <li><strong>Custom/bespoke orders:</strong> Non-returnable unless defective.</li>
+                <li><strong>Sale items:</strong> Non-refundable unless defective.</li>
+              </ul>
+              <p>To initiate a return, contact hello@artisancrafts.com with your order number and reason for return.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="products">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>5. Product Descriptions <span class="terms-num">05</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Because all items are handmade, there may be minor variations in colour, texture, size, or finish compared to the product images shown. These variations are a feature of handcrafted goods, not a defect, and are not grounds for return.</p>
+              <p>Artisan Crafts makes every effort to ensure product descriptions are accurate, but we cannot guarantee that all descriptions are error-free. We reserve the right to correct any errors or inaccuracies.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="payments">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>6. Payments <span class="terms-num">06</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>All transactions are processed securely through Stripe. We accept Visa, Mastercard, American Express, PayPal, and Apple Pay. All prices are in USD and include applicable taxes.</p>
+              <ul>
+                <li>Gift cards are valid for 12 months from purchase and are non-refundable.</li>
+                <li>Discount codes cannot be combined and must be applied at checkout.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item" id="sellers">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>7. Seller Guidelines <span class="terms-num">07</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>All sellers on Artisan Crafts must agree to our Seller Terms of Service. Key requirements include:</p>
+              <ul>
+                <li>All listed items must be handmade or hand-designed by the seller.</li>
+                <li>Sellers must dispatch orders within the processing time stated on their product listing.</li>
+                <li>Misrepresentation of products will result in immediate removal from the platform.</li>
+                <li>Sellers receive payment within 7 business days of order confirmation, after the platform fee is deducted.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item" id="privacy">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>8. Privacy Policy <span class="terms-num">08</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>We collect personal data solely to process orders and improve your experience. We do not sell, rent, or share your data with third parties for marketing purposes.</p>
+              <ul>
+                <li>You may request access to, correction of, or deletion of your personal data at any time.</li>
+                <li>Our website uses cookies to improve performance and personalisation.</li>
+                <li>Contact hello@artisancrafts.com for all privacy-related requests.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item" id="ip">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>9. Intellectual Property <span class="terms-num">09</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>All brand content, photography, and copy on the Artisan Crafts platform is the property of Artisan Crafts or its artisan partners. Reproduction without written permission is prohibited. Product images submitted by sellers remain the intellectual property of the respective artisans.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="contact-terms">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+              <span>10. Contact <span class="terms-num">10</span></span>
+              <span class="faq-icon">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>For questions about these terms, please contact us:</p>
+              <ul>
+                <li><strong>Address:</strong> 42 Craft Lane, Artisan Quarter, NY 10001</li>
+                <li><strong>Email:</strong> hello@artisancrafts.com</li>
+                <li><strong>Phone:</strong> (555) 444-1234</li>
+                <li><strong>Hours:</strong> Mon–Fri, 9 AM – 6 PM EST</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="section final-cta">
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Handmade Treasures</h3>
+            <p>Connecting artisans with craft lovers worldwide.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="./index.html">Home</a>
+              <a href="./about.html">About Us</a>
+              <a href="./contact.html">Contact</a>
+              <a href="./terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>For Sellers</h4>
+            <div class="footer-links">
+              <a href="#">Become a Seller</a>
+              <a href="#">Seller Guide</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>We Accept</h4>
+            <div class="payment-methods">
+              <a href="#" class="payment-icon"><i class="ri-visa-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-mastercard-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-paypal-fill"></i></a>
+            </div>
+            <p class="secure-text">Secure payments powered by Stripe</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Artisan Crafts. Made with ❤️ for artisans worldwide.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- Reuses existing toggleFAQ() from index.js -->
+  <script src="./index.js"></script>
+  <script>
+    document.body.classList.add("loaded");
+
+    // TOC active highlight
+    const tocLinks = document.querySelectorAll(".terms-toc a");
+    const faqItems = document.querySelectorAll(".faq-item");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      faqItems.forEach(item => {
+        if (window.scrollY >= item.offsetTop - 120) current = item.id;
+      });
+      tocLinks.forEach(a => a.classList.toggle("toc-active", a.getAttribute("href") === "#" + current));
+    });
+
+    // Open first item by default
+    document.querySelector(".faq-item.active .faq-answer").style.maxHeight = "600px";
+    document.querySelector(".faq-item.active .faq-answer").style.padding = "0 1.5rem 1.5rem";
+  </script>
+</body>
+</html>

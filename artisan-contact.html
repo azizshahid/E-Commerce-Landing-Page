@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Artisan Crafts</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./artisan-styles-additions.css">
+</head>
+<body>
+
+  <!-- HEADER — identical structure to index.html -->
+  <header>
+    <nav class="header-nav">
+      <div class="logo-container">
+        <a href="./index.html" class="logo">Artisan</a>
+      </div>
+      <div class="nav-links">
+        <div class="nav-item"><a href="./index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="./index.html#products" class="nav-link">Shop</a></div>
+        <div class="nav-item"><a href="./about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></div>
+      </div>
+      <div class="cust-panel">
+        <div class="cust-icon" onclick="location.href='./index.html'">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"/>
+          </svg>
+        </div>
+        <div class="cust-icon cart-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686Z"/>
+          </svg>
+          <span class="cart-count">0</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag"><i class="ri-mail-line"></i>&nbsp; Reach Out</div>
+      <h1>Contact Us</h1>
+      <p>Have a question about an order, a custom piece, or want to know more about our artisans? We'd love to hear from you.</p>
+      <div class="breadcrumb">
+        <a href="./index.html">Home</a><span>&rsaquo;</span>Contact Us
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="inner-section section">
+    <div class="contact-grid container">
+
+      <!-- Form -->
+      <div class="contact-form-wrap">
+        <h2>Send a Message</h2>
+        <p>Our team typically responds within one business day. For order queries, please have your order number ready.</p>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name</label>
+              <input type="text" id="firstName" class="form-input" placeholder="James" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name</label>
+              <input type="text" id="lastName" class="form-input" placeholder="Lowe" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" class="form-input" placeholder="james@example.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="orderNum">Order Number (optional)</label>
+            <input type="text" id="orderNum" class="form-input" placeholder="AC-00000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <select id="subject" class="form-select">
+              <option value="">Select a subject…</option>
+              <option>Order Enquiry</option>
+              <option>Product Question</option>
+              <option>Custom / Bespoke Order</option>
+              <option>Returns &amp; Refunds</option>
+              <option>Become a Seller</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" class="form-textarea" placeholder="How can we help you today?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <i class="ri-send-plane-line"></i> Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Info Panel -->
+      <div class="contact-info-wrap">
+        <h2>Get in Touch</h2>
+        <p>We work with artisans worldwide — whether you're a buyer, a maker, or just curious, we're always happy to talk craft.</p>
+
+        <div class="info-card">
+          <div class="info-icon"><i class="ri-map-pin-line"></i></div>
+          <div class="info-text">
+            <h4>Studio Address</h4>
+            <p>42 Craft Lane<br />Artisan Quarter, NY 10001</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="ri-phone-line"></i></div>
+          <div class="info-text">
+            <h4>Phone</h4>
+            <a href="tel:5554441234">(555) 444-1234</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="ri-mail-line"></i></div>
+          <div class="info-text">
+            <h4>Email</h4>
+            <a href="mailto:hello@artisancrafts.com">hello@artisancrafts.com</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="ri-time-line"></i></div>
+          <div class="info-text">
+            <h4>Response Time</h4>
+            <p>Mon–Fri: Within 24 hours<br />Weekends: Within 48 hours</p>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <i class="ri-map-2-line"></i>
+          <p>42 Craft Lane, Artisan Quarter, NY</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Trust section — reuses .trust-section, .trust-grid, .trust-item from styles.css -->
+  <section class="section trust-section">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Handcrafted by Artisans</h3>
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3>Responds Within 24hrs</h3>
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h3>Secure &amp; Private</h3>
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3>Always Here to Help</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER — identical to index.html footer -->
+  <section class="section final-cta">
+    <footer id="contact-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Handmade Treasures</h3>
+            <p>Connecting artisans with craft lovers worldwide.</p>
+            <div class="social-icons" style="margin-left:0">
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-facebook-fill" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-instagram-line" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-twitter-x-line" style="font-size:1rem;color:#333"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="./index.html">Home</a>
+              <a href="./index.html#products">Shop</a>
+              <a href="./about.html">About Us</a>
+              <a href="./contact.html">Contact</a>
+              <a href="./terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>For Sellers</h4>
+            <div class="footer-links">
+              <a href="#">Become a Seller</a>
+              <a href="#">Seller Guide</a>
+              <a href="#">Seller Support</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>We Accept</h4>
+            <div class="payment-methods">
+              <a href="#" class="payment-icon"><i class="ri-visa-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-mastercard-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-paypal-fill"></i></a>
+            </div>
+            <p class="secure-text">Secure payments powered by Stripe</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Artisan Crafts. Made with ❤️ for artisans worldwide.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="./index.js"></script>
+  <script>
+    document.body.classList.add("loaded");
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const btn = this.querySelector(".form-submit");
+      btn.innerHTML = '<i class="ri-check-line"></i> Message Sent!';
+      btn.style.background = "#4a7c45";
+    });
+  </script>
+</body>
+</html>

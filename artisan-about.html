@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Artisan Crafts</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./artisan-styles-additions.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="header-nav">
+      <div class="logo-container">
+        <a href="./index.html" class="logo">Artisan</a>
+      </div>
+      <div class="nav-links">
+        <div class="nav-item"><a href="./index.html" class="nav-link">Home</a></div>
+        <div class="nav-item"><a href="./index.html#products" class="nav-link">Shop</a></div>
+        <div class="nav-item"><a href="./about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></div>
+      </div>
+      <div class="cust-panel">
+        <div class="cust-icon" onclick="location.href='./index.html'">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"/>
+          </svg>
+        </div>
+        <div class="cust-icon cart-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686Z"/>
+          </svg>
+          <span class="cart-count">0</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-tag"><i class="ri-history-line"></i>&nbsp; Our Story</div>
+      <h1>About Artisan Crafts</h1>
+      <p>We exist to celebrate the hands that make things — connecting skilled artisans with people who value craft, intention, and quality.</p>
+      <div class="breadcrumb">
+        <a href="./index.html">Home</a><span>&rsaquo;</span>About Us
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="inner-section alt-bg section">
+    <div class="story-grid container">
+      <div class="story-content reveal">
+        <p class="section-label">Who We Are</p>
+        <h2>Built for the Love of Making</h2>
+        <p>Artisan Crafts was born in 2016 out of frustration with mass production. Our founder, Emily Ross, a ceramicist herself, wanted a platform that put the maker first — where every product had a story, a hand, and a purpose behind it.</p>
+        <p>Today, we work with over 400 independent artisans across 30 countries, offering small-batch, ethically made products to customers who care about where things come from.</p>
+        <a href="./index.html#products" class="btn btn-primary">Shop Best Sellers</a>
+      </div>
+      <div class="reveal">
+        <div class="story-image">
+          <img src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg" alt="Artisan at work" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="inner-section section">
+    <div class="story-grid reverse container">
+      <div class="reveal">
+        <div class="story-image">
+          <img src="./images/featured-products/Handwoven Wool Blanket.jpg" alt="Handwoven blanket" />
+        </div>
+      </div>
+      <div class="story-content reveal">
+        <p class="section-label">Our Mission</p>
+        <h2>Craft with a Conscience</h2>
+        <p>We believe that how something is made matters as much as what it is. Every product on our platform is made in limited batches by craftspeople who are paid fairly and given the time to work with care.</p>
+        <p>We're committed to keeping traditional techniques alive and ensuring that the artisans behind each piece are the ones who benefit most from the sale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VALUES — reuses .trust-section, .trust-grid, .trust-item from styles.css -->
+  <section class="section trust-section">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Handcrafted by Artisans</h3>
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <h3>Ethically Sourced</h3>
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3>Small-Batch Quality</h3>
+      </div>
+      <div class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h3>Fair to Makers</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE MAKERS -->
+  <section class="inner-section alt-bg section">
+    <p class="section-label">The People Behind It</p>
+    <h2 class="section-title">Meet Our Artisans</h2>
+    <p class="product-trust" style="margin-bottom:2.5rem">Every product tells the story of a skilled maker.</p>
+    <div class="team-grid container">
+      <div class="team-card reveal">
+        <img src="./images/category/Cozy Ceramic Corner.png" alt="Maria Santos" class="team-photo" />
+        <div class="team-info">
+          <h3>Maria Santos</h3>
+          <p class="team-role">Ceramicist · Portugal</p>
+          <p class="team-bio">Maria has been throwing pots for 22 years. Her ceramic tea sets are made using traditional techniques passed down from her grandmother.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <img src="./images/featured-products/Handwoven Wool Blanket.jpg" alt="Rupa Sharma" class="team-photo" />
+        <div class="team-info">
+          <h3>Rupa Sharma</h3>
+          <p class="team-role">Weaver · Rajasthan, India</p>
+          <p class="team-bio">Using handlooms that have been in her family for three generations, Rupa creates woollen pieces that take up to a week each to complete.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <img src="./images/category/Handmade Jewelry Display.png" alt="Tomás Ferreira" class="team-photo" />
+        <div class="team-info">
+          <h3>Tomás Ferreira</h3>
+          <p class="team-role">Silversmith · Mexico City</p>
+          <p class="team-bio">A self-taught jeweller who learned his craft through apprenticeship in Taxco, Mexico's silver capital. Each piece is hammered and set by hand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA — reuses .final-cta from styles.css -->
+  <section class="section final-cta">
+    <h2>Start Your Collection Today</h2>
+    <p>Discover handcrafted quality that's built to last a lifetime</p>
+    <a href="./index.html#products" class="btn btn-primary">Shop Now</a>
+    <p class="trust-text">Free shipping over $75 • 30-day returns • Secure checkout</p>
+
+    <!-- FOOTER — identical to index.html -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Handmade Treasures</h3>
+            <p>Connecting artisans with craft lovers worldwide.</p>
+            <div class="social-icons" style="margin-left:0">
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-facebook-fill" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-instagram-line" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-twitter-x-line" style="font-size:1rem;color:#333"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="./index.html">Home</a>
+              <a href="./index.html#products">Shop</a>
+              <a href="./about.html">About Us</a>
+              <a href="./contact.html">Contact</a>
+              <a href="./terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>For Sellers</h4>
+            <div class="footer-links">
+              <a href="#">Become a Seller</a>
+              <a href="#">Seller Guide</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>We Accept</h4>
+            <div class="payment-methods">
+              <a href="#" class="payment-icon"><i class="ri-visa-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-mastercard-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-paypal-fill"></i></a>
+            </div>
+            <p class="secure-text">Secure payments powered by Stripe</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Artisan Crafts. Made with ❤️ for artisans worldwide.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="./index.js"></script>
+  <script>
+    document.body.classList.add("loaded");
+    // Reveal on scroll
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.15 });
+    reveals.forEach(r => observer.observe(r));
+  </script>
+</body>
+</html>
