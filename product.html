@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hand-painted Ceramic Tea Set – Artisan Crafts</title>
+    <meta
+      name="description"
+      content="A hand-painted ceramic tea set made in limited batches by Maria Santos, ceramicist from Portugal. Shop ethically made artisan goods."
+    />
+    <link rel="stylesheet" href="./CSS/styles.css" />
+    <link rel="stylesheet" href="./CSS/artisan-styles-additions.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/products.css">
+
+  </head>
+  <body>
+    <!-- ── HEADER ─────────────────────────────────────────────── -->
+    <header>
+      <nav class="header-nav">
+        <div class="logo-container">
+          <a href="./index.html" class="logo">Artisan</a>
+        </div>
+
+        <div class="nav-links">
+          <div class="nav-item">
+            <a href="#" class="nav-link"
+              >Home Decor <span class="nav-arrow">▾</span></a
+            >
+            <div class="dropdown">
+              <a href="./shop.html?cat=wall-art">Wall Art</a>
+              <a href="./shop.html?cat=ceramics">Ceramics</a>
+              <a href="./shop.html?cat=lighting">Lighting</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link"
+              >Art <span class="nav-arrow">▾</span></a
+            >
+            <div class="dropdown">
+              <a href="./shop.html?cat=paintings">Paintings</a>
+              <a href="./shop.html?cat=sculptures">Sculptures</a>
+              <a href="./shop.html?cat=prints">Prints</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link"
+              >Pet Supplies <span class="nav-arrow">▾</span></a
+            >
+            <div class="dropdown">
+              <a href="./shop.html?cat=beds">Beds</a>
+              <a href="./shop.html?cat=bowls">Bowls</a>
+              <a href="./shop.html?cat=toys">Toys</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="./shop.html" class="nav-link">Shop</a>
+          </div>
+          <div class="nav-item">
+            <a href="./about.html" class="nav-link">About</a>
+          </div>
+          <div class="nav-item">
+            <a href="./contact.html" class="nav-link">Contact</a>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <input
+            type="search"
+            placeholder="Search for anything"
+            aria-label="Search"
+            class="search-input"
+          />
+          <button class="search-btn">🔍</button>
+        </div>
+
+        <div class="cust-panel">
+          <div
+            class="cust-icon user-icon"
+            onclick="location.href = './login.html'"
+            title="Account"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"
+              />
+            </svg>
+          </div>
+          <div class="cust-icon cart-icon" onclick="toggleCart()" title="Cart">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"
+              />
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ── BREADCRUMB ─────────────────────────────────────────── -->
+    <div
+      style="
+        background: var(--color-white);
+        border-bottom: 1px solid var(--color-beige);
+        padding: 0.65rem 4rem;
+      "
+    >
+      <p
+        style="
+          font-size: 0.8rem;
+          color: #9b9188;
+          max-width: 1300px;
+          margin: 0 auto;
+        "
+      >
+        <a
+          href="./index.html"
+          style="color: var(--color-clay); text-decoration: none"
+          >Home</a
+        >
+        <span style="margin: 0 6px">›</span>
+        <a
+          href="./shop.html"
+          style="color: var(--color-clay); text-decoration: none"
+          >Shop</a
+        >
+        <span style="margin: 0 6px">›</span>
+        <a
+          href="./shop.html?cat=ceramics"
+          style="color: var(--color-clay); text-decoration: none"
+          >Ceramics</a
+        >
+        <span style="margin: 0 6px">›</span>
+        Hand-painted Ceramic Tea Set
+      </p>
+    </div>
+
+    <!-- ── MAIN PDP ───────────────────────────────────────────── -->
+    <div class="pdp-section">
+      <div class="pdp-grid">
+        <!-- LEFT: Gallery -->
+        <div class="gallery reveal">
+          <div class="gallery-main" id="galleryMain">
+            <img
+              id="mainImg"
+              src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+              alt="Hand-painted Ceramic Tea Set – main view"
+            />
+          </div>
+          <div class="gallery-thumbs">
+            <div
+              class="gallery-thumb active"
+              onclick="
+                switchImage(
+                  this,
+                  './images/featured-products/Hand-painted Ceramic Tea Set.jpg',
+                )
+              "
+            >
+              <img
+                src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+                alt="Ceramic Tea Set view 1"
+              />
+            </div>
+            <div
+              class="gallery-thumb"
+              onclick="
+                switchImage(this, './images/category/Cozy Ceramic Corner.png')
+              "
+            >
+              <img
+                src="./images/category/Cozy Ceramic Corner.png"
+                alt="Ceramic Tea Set view 2"
+              />
+            </div>
+            <div
+              class="gallery-thumb"
+              onclick="
+                switchImage(
+                  this,
+                  './images/featured-products/Handwoven Wool Blanket.jpg',
+                )
+              "
+            >
+              <img
+                src="./images/featured-products/Handwoven Wool Blanket.jpg"
+                alt="Ceramic Tea Set view 3"
+              />
+            </div>
+            <div
+              class="gallery-thumb"
+              onclick="
+                switchImage(
+                  this,
+                  './images/featured-products/Botanical Tote in Sunlit Entryway1.png',
+                )
+              "
+            >
+              <img
+                src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png"
+                alt="Ceramic Tea Set view 4"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Purchase Panel -->
+        <div class="purchase-panel reveal">
+          <!-- Badges -->
+          <div class="pdp-badges">
+            <span class="pdp-badge badge-limited"
+              ><i class="ri-fire-line"></i>&nbsp; Limited Batch</span
+            >
+            <span class="pdp-badge badge-seller">Best Seller</span>
+          </div>
+
+          <!-- Title -->
+          <h1 class="pdp-title">Hand-painted Ceramic Tea Set</h1>
+
+          <!-- Artisan attribution -->
+          <a href="./about.html" class="pdp-artisan">
+            <img
+              src="./images/category/Cozy Ceramic Corner.png"
+              alt="Maria Santos"
+              class="artisan-avatar"
+            />
+            <div>
+              <p class="artisan-label">Made by</p>
+              <p class="artisan-name">Maria Santos &nbsp;· Portugal</p>
+            </div>
+          </a>
+
+          <!-- Rating -->
+          <div class="pdp-rating">
+            <span class="pdp-stars">★★★★★</span>
+            <span class="pdp-rating-num">4.9</span>
+            <span
+              class="pdp-rating-count"
+              onclick="
+                document
+                  .getElementById('reviews')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              >127 reviews</span
+            >
+            <span style="color: #d4d0cc; font-size: 0.9rem">|</span>
+            <span style="font-size: 0.82rem; color: #5a9e5d; font-weight: 600"
+              ><i class="ri-check-line"></i> 38 sold this week</span
+            >
+          </div>
+
+          <!-- Price -->
+          <div class="pdp-price-block">
+            <span class="pdp-price">$89.00</span>
+            <span class="pdp-price-orig">$110.00</span>
+            <span class="pdp-price-save">Save 19%</span>
+          </div>
+          <p class="pdp-shipping-note">
+            <i class="ri-truck-line"></i>&nbsp; <span>Free shipping</span> on
+            orders over $75 · Est. delivery 5–7 days
+          </p>
+
+          <div class="pdp-divider"></div>
+
+          <!-- Glaze colour -->
+          <p class="option-label">
+            Glaze colour &nbsp;<span id="selectedColour">— Pebble White</span>
+          </p>
+          <div class="swatch-group">
+            <div
+              class="swatch active"
+              style="background: #f0ede8"
+              title="Pebble White"
+              onclick="selectSwatch(this, 'Pebble White')"
+            ></div>
+            <div
+              class="swatch"
+              style="background: #c9a58a"
+              title="Clay Terracotta"
+              onclick="selectSwatch(this, 'Clay Terracotta')"
+            ></div>
+            <div
+              class="swatch"
+              style="background: #7e9b8a"
+              title="Sage Green"
+              onclick="selectSwatch(this, 'Sage Green')"
+            ></div>
+            <div
+              class="swatch"
+              style="background: #6b7d9c"
+              title="Storm Blue"
+              onclick="selectSwatch(this, 'Storm Blue')"
+            ></div>
+          </div>
+
+          <!-- Set size -->
+          <p class="option-label">Set size</p>
+          <div class="variant-group">
+            <button class="variant-pill active" onclick="selectVariant(this)">
+              2-piece
+            </button>
+            <button class="variant-pill" onclick="selectVariant(this)">
+              4-piece
+            </button>
+            <button class="variant-pill" onclick="selectVariant(this)">
+              6-piece
+            </button>
+          </div>
+
+          <div class="pdp-divider"></div>
+
+          <!-- Stock -->
+          <div class="stock-indicator">
+            <span class="stock-dot low"></span>
+            Only
+            <strong style="color: var(--color-charcoal); margin: 0 3px"
+              >6</strong
+            >
+            left in this batch — next batch in 8 weeks
+          </div>
+
+          <!-- Qty + CTA -->
+          <div class="qty-cart-row">
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(-1)">−</button>
+              <span class="qty-num" id="qtyDisplay">1</span>
+              <button class="qty-btn" onclick="changeQty(1)">+</button>
+            </div>
+            <button class="btn-atc" id="atcBtn" onclick="handleAddToCart()">
+              <i class="ri-shopping-cart-line"></i> Add to Cart
+            </button>
+            <button
+              class="btn-wishlist"
+              id="wishlistBtn"
+              onclick="toggleWishlist(this)"
+              title="Save to wishlist"
+            >
+              <i class="ri-heart-line"></i>
+            </button>
+          </div>
+
+          <!-- Trust grid -->
+          <div class="pdp-trust">
+            <div class="pdp-trust-item">
+              <i class="ri-shield-check-line"></i> 30-day free returns
+            </div>
+            <div class="pdp-trust-item">
+              <i class="ri-lock-2-line"></i> Secure Stripe checkout
+            </div>
+            <div class="pdp-trust-item">
+              <i class="ri-hand-heart-line"></i> Ethically handmade
+            </div>
+            <div class="pdp-trust-item">
+              <i class="ri-global-line"></i> Ships worldwide
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PRODUCT DETAILS TABS ──────────────────────────────── -->
+    <div class="tabs-section">
+      <div class="faq-container" style="max-width: 100%">
+        <div class="faq-item active">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Description</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div
+            class="faq-answer"
+            style="max-height: 400px; padding: 0 1.5rem 1.5rem"
+          >
+            <p>
+              Each tea set is wheel-thrown and hand-painted in Maria's small
+              studio in Porto, Portugal. The glaze is fired at 1260°C, giving it
+              a distinctive matte surface that is both food-safe and
+              dishwasher-safe. No two sets are identical — minor variations in
+              colour and texture are an intentional feature of the handmade
+              process.
+            </p>
+            <p style="margin-top: 0.8rem">
+              The 4-piece set includes a teapot (750ml), two mugs (280ml each),
+              and a small tray. Each piece is signed and dated by Maria on the
+              base.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Materials &amp; Care</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              High-fire stoneware clay · Lead-free food-safe glaze · Fired to
+              1260°C (cone 10)
+            </p>
+            <ul
+              style="padding-left: 1.3rem; margin-top: 0.8rem; color: #6b6763"
+            >
+              <li>Dishwasher safe (top rack recommended)</li>
+              <li>Microwave safe</li>
+              <li>Not suitable for open-flame use</li>
+              <li>
+                Handle with care — stoneware, while durable, can chip if knocked
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Shipping &amp; Returns</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Orders are carefully packed in recycled tissue and shipped in a
+              rigid gift box. Because this item is fragile, it ships with
+              additional protective cushioning.
+            </p>
+            <ul
+              style="padding-left: 1.3rem; margin-top: 0.8rem; color: #6b6763"
+            >
+              <li>Free standard shipping on orders over $75</li>
+              <li>Estimated delivery: 5–7 business days (US)</li>
+              <li>International shipping available — 10–18 days</li>
+              <li>30-day returns on unused items in original packaging</li>
+            </ul>
+            <p style="margin-top: 0.8rem">
+              For full details, see our
+              <a href="./terms.html" style="color: var(--color-clay)"
+                >Terms &amp; Conditions</a
+              >.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ARTISAN SPOTLIGHT ──────────────────────────────────── -->
+    <div class="artisan-spotlight">
+      <div class="artisan-spotlight-inner">
+        <img
+          src="./images/category/Cozy Ceramic Corner.png"
+          alt="Maria Santos – Ceramicist"
+          class="artisan-portrait reveal"
+        />
+        <div class="artisan-spotlight-content reveal">
+          <p class="section-label">The Maker</p>
+          <h3>Maria Santos</h3>
+          <p class="team-role" style="margin-bottom: 0.8rem">
+            Ceramicist &nbsp;·&nbsp; Porto, Portugal &nbsp;·&nbsp; 22 years
+            experience
+          </p>
+          <p class="bio">
+            Maria has been throwing pots since she was fourteen, learning at her
+            grandmother's wheel in the hills outside Porto. Her ceramic tea sets
+            take up to three days each to complete — thrown, trimmed, bisque
+            fired, hand-painted, then high-fired. She works in limited batches
+            of six at a time, and every piece is signed.
+          </p>
+          <a
+            href="./about.html"
+            class="btn btn-secondary"
+            style="font-size: 0.88rem; padding: 0.65rem 1.75rem"
+            >Meet All Our Artisans →</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ── REVIEWS ─────────────────────────────────────────────── -->
+    <div class="reviews-section" id="reviews">
+      <div class="reviews-header">
+        <div>
+          <h2 class="tab-heading" style="margin-bottom: 0.3rem">
+            Customer Reviews
+          </h2>
+          <div class="reviews-summary">
+            <span class="reviews-avg">4.9</span>
+            <div>
+              <div
+                style="color: #d4a574; font-size: 1.1rem; letter-spacing: 2px"
+              >
+                ★★★★★
+              </div>
+              <p class="reviews-meta">Based on 127 reviews</p>
+            </div>
+          </div>
+        </div>
+        <a
+          href="./contact.html"
+          class="btn btn-secondary"
+          style="
+            font-size: 0.85rem;
+            padding: 0.65rem 1.5rem;
+            white-space: nowrap;
+          "
+          >Write a Review</a
+        >
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div>
+              <p class="review-author">Sarah M.</p>
+              <p class="review-date">February 2024</p>
+            </div>
+            <span class="review-verified">Verified</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "The quality exceeded every expectation. Each cup feels unique and
+            special — you can actually see the brushstrokes in the glaze. My
+            morning tea has become a ritual I look forward to."
+          </p>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div>
+              <p class="review-author">James L.</p>
+              <p class="review-date">January 2024</p>
+            </div>
+            <span class="review-verified">Verified</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "Beautiful craftsmanship and it arrived in the most gorgeous gift
+            packaging. Bought it as a gift — the recipient was absolutely
+            stunned. The weight and finish are exactly right."
+          </p>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-top">
+            <div>
+              <p class="review-author">Emily R.</p>
+              <p class="review-date">December 2023</p>
+            </div>
+            <span class="review-verified">Verified</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "I appreciate that it's signed by the maker. There's a warmth and
+            intention behind this piece that you simply cannot get from
+            mass-produced goods. Worth every penny and then some."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RELATED PRODUCTS ───────────────────────────────────── -->
+    <div class="related-section">
+      <div class="related-inner">
+        <h2
+          class="section-title"
+          style="text-align: left; font-size: 1.8rem; margin-bottom: 0.5rem"
+        >
+          You May Also Like
+        </h2>
+        <p class="product-trust" style="text-align: left; margin-bottom: 2rem">
+          Other pieces our customers love
+        </p>
+        <div class="carousel" id="relatedCarousel">
+          <div class="carousel-track" style="padding-right: 2rem">
+            <div
+              class="product-card"
+              onclick="location.href = './product.html'"
+              style="flex: 0 0 28%; cursor: pointer"
+            >
+              <img
+                src="./images/featured-products/Handwoven Wool Blanket.jpg"
+                alt="Handwoven Wool Blanket"
+                class="product-image"
+              />
+              <div class="product-info">
+                <div class="info">
+                  <h3 class="product-name">Handwoven Wool Blanket</h3>
+                  <p>Best Seller</p>
+                </div>
+                <p class="product-price">$64.00</p>
+                <div class="product-rating">
+                  <span class="stars">★★★★★</span><span>(89)</span>
+                </div>
+                <div class="product-button">
+                  <button
+                    class="add-to-cart"
+                    onclick="
+                      event.stopPropagation();
+                      addToCart(
+                        'Handwoven Wool Blanket',
+                        64,
+                        './images/featured-products/Handwoven Wool Blanket.jpg',
+                      );
+                    "
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="product-card"
+              onclick="location.href = './product.html'"
+              style="flex: 0 0 28%; cursor: pointer"
+            >
+              <img
+                src="./images/category/Handmade Jewelry Display.png"
+                alt="Silver Necklace"
+                class="product-image"
+              />
+              <div class="product-info">
+                <div class="info">
+                  <h3 class="product-name">Silver Necklace</h3>
+                  <p>Limited Batch</p>
+                </div>
+                <p class="product-price">$118.00</p>
+                <div class="product-rating">
+                  <span class="stars">★★★★★</span><span>(203)</span>
+                </div>
+                <div class="product-button">
+                  <button
+                    class="add-to-cart"
+                    onclick="
+                      event.stopPropagation();
+                      addToCart(
+                        'Silver Necklace',
+                        118,
+                        './images/category/Handmade Jewelry Display.png',
+                      );
+                    "
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="product-card"
+              onclick="location.href = './product.html'"
+              style="flex: 0 0 28%; cursor: pointer"
+            >
+              <img
+                src="./images/category/Bohemian Dresses in Sunlight.png"
+                alt="Bohemian Dress"
+                class="product-image"
+              />
+              <div class="product-info">
+                <div class="info">
+                  <h3 class="product-name">Bohemian Dress</h3>
+                  <p>Best Seller</p>
+                </div>
+                <p class="product-price">$96.00</p>
+                <div class="product-rating">
+                  <span class="stars">★★★★☆</span><span>(74)</span>
+                </div>
+                <div class="product-button">
+                  <button
+                    class="add-to-cart"
+                    onclick="
+                      event.stopPropagation();
+                      addToCart(
+                        'Bohemian Dress',
+                        96,
+                        './images/category/Bohemian Dresses in Sunlight.png',
+                      );
+                    "
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="product-card"
+              onclick="location.href = './product.html'"
+              style="flex: 0 0 28%; cursor: pointer"
+            >
+              <img
+                src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png"
+                alt="Botanical Tote"
+                class="product-image"
+              />
+              <div class="product-info">
+                <div class="info">
+                  <h3 class="product-name">Botanical Tote Bag</h3>
+                  <p>New Arrival</p>
+                </div>
+                <p class="product-price">$48.00</p>
+                <div class="product-rating">
+                  <span class="stars">★★★★★</span><span>(41)</span>
+                </div>
+                <div class="product-button">
+                  <button
+                    class="add-to-cart"
+                    onclick="
+                      event.stopPropagation();
+                      addToCart(
+                        'Botanical Tote Bag',
+                        48,
+                        './images/featured-products/Botanical Tote in Sunlit Entryway1.png',
+                      );
+                    "
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FINAL CTA + FOOTER ─────────────────────────────────── -->
+    <section class="section final-cta">
+      <h2>Shop the Full Collection</h2>
+      <p>Discover hundreds of handcrafted pieces from artisans worldwide</p>
+      <a href="./shop.html" class="btn btn-primary">Browse All Products</a>
+      <p class="trust-text">
+        Free shipping over $75 &bull; 30-day returns &bull; Secure checkout
+      </p>
+
+      <footer>
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3>Handmade Treasures</h3>
+              <p>Connecting artisans with craft lovers worldwide.</p>
+              <div class="social-icons" style="margin-left: 0">
+                <a href="#" class="icon-circle icon-circle--sm"
+                  ><i
+                    class="ri-facebook-fill"
+                    style="font-size: 1rem; color: #333"
+                  ></i
+                ></a>
+                <a href="#" class="icon-circle icon-circle--sm"
+                  ><i
+                    class="ri-instagram-line"
+                    style="font-size: 1rem; color: #333"
+                  ></i
+                ></a>
+                <a href="#" class="icon-circle icon-circle--sm"
+                  ><i
+                    class="ri-twitter-x-line"
+                    style="font-size: 1rem; color: #333"
+                  ></i
+                ></a>
+                <a href="#" class="icon-circle icon-circle--sm"
+                  ><i
+                    class="ri-pinterest-fill"
+                    style="font-size: 1rem; color: #333"
+                  ></i
+                ></a>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <div class="footer-links">
+                <a href="./index.html">Home</a>
+                <a href="./shop.html">Shop</a>
+                <a href="./about.html">About Us</a>
+                <a href="./contact.html">Contact</a>
+                <a href="./terms.html">Terms &amp; Conditions</a>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h4>For Sellers</h4>
+              <div class="footer-links">
+                <a href="#">Become a Seller</a>
+                <a href="#">Seller Guide</a>
+                <a href="#">Seller Support</a>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h4>We Accept</h4>
+              <div class="payment-methods">
+                <a href="#" class="payment-icon"
+                  ><i class="ri-visa-fill"></i
+                ></a>
+                <a href="#" class="payment-icon"
+                  ><i class="ri-mastercard-fill"></i
+                ></a>
+                <a href="#" class="payment-icon"
+                  ><i class="ri-paypal-fill"></i
+                ></a>
+                <a href="#" class="payment-icon"
+                  ><i class="ri-apple-fill"></i
+                ></a>
+              </div>
+              <p class="secure-text">Secure payments powered by Stripe</p>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>
+              &copy; 2024 Artisan Crafts. Made with ❤️ for artisans worldwide.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ── CART MODAL (same as index.html) ───────────────────── -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-overlay" onclick="toggleCart()"></div>
+      <div class="cart-drawer">
+        <div class="cart-header">
+          <h2>Your Cart</h2>
+          <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+          <div class="empty-cart">Your cart is empty</div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <a
+            href="./cart.html"
+            class="btn btn-primary"
+            style="width: 100%; text-align: center; display: block"
+          >
+            Review Cart &amp; Checkout
+          </a>
+          <p class="cart-trust">
+            Secure checkout &bull; 30-day returns &bull; Free shipping over $75
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+    <script src="./index.js"></script>
+    <script src="./JS/product.js"></script>
+  </body>
+</html>
