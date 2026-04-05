@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout – Artisan Crafts</title>
+    <meta
+      name="description"
+      content="Secure checkout – Artisan Crafts. Complete your order with confidence."
+    />
+    <link rel="stylesheet" href="./CSS/styles.css" />
+    <link rel="stylesheet" href="./CSS/artisan-styles-additions.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/checkout.css">
+ 
+  </head>
+  <body class="checkout-page">
+    <!-- ── SLIM CHECKOUT NAV ───────────────────────────────────── -->
+    <nav class="checkout-nav">
+      <a href="./index.html" class="checkout-logo">Artisan</a>
+      <div style="display: flex; align-items: center; gap: 1.5rem">
+        <a
+          href="./cart.html"
+          style="
+            font-size: 0.82rem;
+            color: var(--color-clay);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+          "
+        >
+          <i class="ri-arrow-left-s-line"></i> Back to cart
+        </a>
+        <span class="checkout-secure"
+          ><i class="ri-lock-2-line"></i> Secure checkout</span
+        >
+      </div>
+    </nav>
+
+    <!-- ── STEP PROGRESS ──────────────────────────────────────── -->
+    <div class="step-bar">
+      <div class="step-bar-inner">
+        <div
+          class="step done"
+          id="stepCart"
+          onclick="location.href = './cart.html'"
+        >
+          <span class="step-num"
+            ><i class="ri-check-line" style="font-size: 0.7rem"></i
+          ></span>
+          <span class="step-label">Cart</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step active" id="stepShipping">
+          <span class="step-num">2</span>
+          <span class="step-label">Shipping</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step" id="stepPayment">
+          <span class="step-num">3</span>
+          <span class="step-label">Payment</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step" id="stepConfirm">
+          <span class="step-num">4</span>
+          <span class="step-label">Confirm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CHECKOUT WRAPPER ───────────────────────────────────── -->
+    <div class="checkout-wrapper">
+      <!-- ═══════ LEFT COLUMN ═══════ -->
+      <div class="checkout-left">
+        <!-- ── STEP 1: CONTACT ──────────────────────────────── -->
+        <div class="checkout-card" id="contactCard">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span class="card-step-badge">1</span>
+              <h2 class="card-title">Contact</h2>
+            </div>
+          </div>
+
+          <div class="checkout-form">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="firstName">First name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  class="form-input"
+                  placeholder="James"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lastName">Last name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  class="form-input"
+                  placeholder="Lowe"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-input"
+                placeholder="james@example.com"
+                autocomplete="email"
+                required
+              />
+              <p style="font-size: 0.76rem; color: #9b9188; margin-top: 0.3rem">
+                <i class="ri-information-line"></i> Your order confirmation will
+                be sent here
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone number</label>
+              <div class="input-prefix-wrap">
+                <span class="input-prefix">🇺🇸 +1</span>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-input"
+                  placeholder="(555) 000-0000"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <div
+              class="form-group"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                cursor: pointer;
+              "
+            >
+              <input
+                type="checkbox"
+                id="createAccount"
+                style="
+                  accent-color: var(--color-charcoal);
+                  width: 16px;
+                  height: 16px;
+                "
+              />
+              <label
+                for="createAccount"
+                style="font-size: 0.82rem; color: #6b6763; cursor: pointer"
+                >Save my details for faster checkout next time</label
+              >
+            </div>
+          </div>
+
+          <button class="step-continue" onclick="continueToShipping()">
+            Continue to Shipping <i class="ri-arrow-right-s-line"></i>
+          </button>
+        </div>
+
+        <!-- ── STEP 2: SHIPPING ADDRESS ─────────────────────── -->
+        <div class="checkout-card collapsed" id="shippingCard">
+          <div class="card-header" style="margin-bottom: 0">
+            <div class="card-header-left">
+              <span class="card-step-badge" id="shippingBadge">2</span>
+              <h2 class="card-title">Shipping address</h2>
+            </div>
+            <button
+              class="card-edit"
+              id="shippingEdit"
+              onclick="editStep('shipping')"
+              style="display: none"
+            >
+              Edit
+            </button>
+          </div>
+
+          <div id="shippingSummary" style="display: none; margin-top: 0.6rem">
+            <p class="card-summary" id="shippingSummaryText"></p>
+          </div>
+
+          <div id="shippingForm" style="display: none; margin-top: 1.6rem">
+            <div class="checkout-form">
+              <div class="form-group">
+                <label class="form-label" for="address1">Address line 1</label>
+                <input
+                  type="text"
+                  id="address1"
+                  class="form-input"
+                  placeholder="42 Craft Lane"
+                  autocomplete="address-line1"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="address2"
+                  >Address line 2
+                  <span style="font-weight: 400; color: #b0a89e"
+                    >(optional)</span
+                  ></label
+                >
+                <input
+                  type="text"
+                  id="address2"
+                  class="form-input"
+                  placeholder="Apartment, suite, unit…"
+                  autocomplete="address-line2"
+                />
+              </div>
+
+              <div class="form-row-3">
+                <div class="form-group">
+                  <label class="form-label" for="city">City</label>
+                  <input
+                    type="text"
+                    id="city"
+                    class="form-input"
+                    placeholder="New York"
+                    autocomplete="address-level2"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="state">State</label>
+                  <select
+                    id="state"
+                    class="form-select"
+                    autocomplete="address-level1"
+                  >
+                    <option value="">Select…</option>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>Arizona</option>
+                    <option>California</option>
+                    <option>Colorado</option>
+                    <option>Connecticut</option>
+                    <option>Florida</option>
+                    <option>Georgia</option>
+                    <option>Hawaii</option>
+                    <option>Illinois</option>
+                    <option>Massachusetts</option>
+                    <option>Michigan</option>
+                    <option>Minnesota</option>
+                    <option selected>New York</option>
+                    <option>Nevada</option>
+                    <option>New Jersey</option>
+                    <option>North Carolina</option>
+                    <option>Ohio</option>
+                    <option>Oregon</option>
+                    <option>Pennsylvania</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Virginia</option>
+                    <option>Washington</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="zip">ZIP code</label>
+                  <input
+                    type="text"
+                    id="zip"
+                    class="form-input"
+                    placeholder="10001"
+                    autocomplete="postal-code"
+                    maxlength="10"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="country">Country</label>
+                <select
+                  id="country"
+                  class="form-select"
+                  autocomplete="country-name"
+                  onchange="updateDeliveryOptions(this.value)"
+                >
+                  <option value="us" selected>United States</option>
+                  <option value="ca">Canada</option>
+                  <option value="gb">United Kingdom</option>
+                  <option value="au">Australia</option>
+                  <option value="de">Germany</option>
+                  <option value="fr">France</option>
+                  <option value="other">Other country</option>
+                </select>
+              </div>
+
+              <!-- Delivery method -->
+              <div class="form-group" style="margin-top: 0.5rem">
+                <p class="form-label" style="margin-bottom: 0.75rem">
+                  Delivery method
+                </p>
+                <div class="delivery-options" id="deliveryOptions">
+                  <label
+                    class="delivery-option selected"
+                    onclick="selectDelivery(this, 0)"
+                  >
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value="standard"
+                      checked
+                    />
+                    <div class="delivery-option-body">
+                      <p class="delivery-option-title">Standard shipping</p>
+                      <p class="delivery-option-desc">
+                        5–7 business days · USPS / UPS
+                      </p>
+                    </div>
+                    <span class="delivery-option-price free" id="stdPrice"
+                      >Free</span
+                    >
+                  </label>
+                  <label
+                    class="delivery-option"
+                    onclick="selectDelivery(this, 12)"
+                  >
+                    <input type="radio" name="delivery" value="express" />
+                    <div class="delivery-option-body">
+                      <p class="delivery-option-title">Express shipping</p>
+                      <p class="delivery-option-desc">
+                        2–3 business days · FedEx
+                      </p>
+                    </div>
+                    <span class="delivery-option-price">$12.00</span>
+                  </label>
+                  <label
+                    class="delivery-option"
+                    onclick="selectDelivery(this, 24)"
+                  >
+                    <input type="radio" name="delivery" value="overnight" />
+                    <span class="delivery-badge">Fastest</span>
+                    <div class="delivery-option-body">
+                      <p class="delivery-option-title">Overnight delivery</p>
+                      <p class="delivery-option-desc">
+                        Next business day · FedEx Priority
+                      </p>
+                    </div>
+                    <span class="delivery-option-price">$24.00</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button class="step-continue" onclick="continueToPayment()">
+              Continue to Payment <i class="ri-arrow-right-s-line"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── STEP 3: PAYMENT ──────────────────────────────── -->
+        <div class="checkout-card collapsed" id="paymentCard">
+          <div class="card-header" style="margin-bottom: 0">
+            <div class="card-header-left">
+              <span class="card-step-badge" id="paymentBadge">3</span>
+              <h2 class="card-title">Payment</h2>
+            </div>
+            <button
+              class="card-edit"
+              id="paymentEdit"
+              onclick="editStep('payment')"
+              style="display: none"
+            >
+              Edit
+            </button>
+          </div>
+
+          <div id="paymentForm" style="display: none; margin-top: 1.6rem">
+            <!-- Payment method tabs -->
+            <div class="payment-tabs">
+              <button
+                class="pay-tab active"
+                onclick="switchPayTab(this, 'card')"
+              >
+                <i class="ri-bank-card-line"></i> Card
+              </button>
+              <button class="pay-tab" onclick="switchPayTab(this, 'paypal')">
+                <i class="ri-paypal-fill"></i> PayPal
+              </button>
+              <button class="pay-tab" onclick="switchPayTab(this, 'apple')">
+                <i class="ri-apple-fill"></i> Apple Pay
+              </button>
+            </div>
+
+            <!-- Card panel -->
+            <div id="cardPanel">
+              <!-- Live card preview -->
+              <div class="card-preview" id="cardPreview">
+                <div class="card-preview-chip"></div>
+                <p class="card-preview-number" id="previewNum">
+                  •••• •••• •••• ••••
+                </p>
+                <div class="card-preview-bottom">
+                  <div>
+                    <div>Card holder</div>
+                    <div class="card-preview-name" id="previewName">
+                      YOUR NAME
+                    </div>
+                  </div>
+                  <div style="text-align: right">
+                    <div>Expires</div>
+                    <div class="card-preview-name" id="previewExp">MM / YY</div>
+                  </div>
+                  <i
+                    class="ri-visa-fill"
+                    style="font-size: 2rem; opacity: 0.4; align-self: center"
+                    id="previewNetwork"
+                  ></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cardNumber">Card number</label>
+                <div class="card-input-wrap">
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    class="form-input"
+                    placeholder="1234 5678 9012 3456"
+                    maxlength="19"
+                    inputmode="numeric"
+                    oninput="formatCard(this)"
+                    autocomplete="cc-number"
+                  />
+                  <i
+                    class="ri-bank-card-line card-network-icon"
+                    id="cardNetworkIcon"
+                  ></i>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="cardName">Name on card</label>
+                  <input
+                    type="text"
+                    id="cardName"
+                    class="form-input"
+                    placeholder="James Lowe"
+                    oninput="
+                      document.getElementById('previewName').textContent =
+                        this.value.toUpperCase() || 'YOUR NAME'
+                    "
+                    autocomplete="cc-name"
+                  />
+                </div>
+                <div class="form-row-2" style="gap: 0.65rem">
+                  <div class="form-group">
+                    <label class="form-label" for="cardExp">Expiry</label>
+                    <input
+                      type="text"
+                      id="cardExp"
+                      class="form-input"
+                      placeholder="MM / YY"
+                      maxlength="7"
+                      oninput="formatExp(this)"
+                      autocomplete="cc-exp"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="cardCvc">CVC</label>
+                    <input
+                      type="text"
+                      id="cardCvc"
+                      class="form-input"
+                      placeholder="•••"
+                      maxlength="4"
+                      inputmode="numeric"
+                      autocomplete="cc-csc"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <label class="save-card-row">
+                <input type="checkbox" id="saveCard" />
+                Save this card for future orders (encrypted securely)
+              </label>
+            </div>
+
+            <!-- PayPal panel -->
+            <div id="paypalPanel" class="alt-pay-panel">
+              <p
+                style="
+                  font-size: 0.88rem;
+                  color: #6b6763;
+                  margin-bottom: 1.2rem;
+                  line-height: 1.7;
+                "
+              >
+                You'll be redirected to PayPal to complete your payment
+                securely. Once confirmed, you'll return here.
+              </p>
+              <button class="paypal-btn" onclick="placeOrder()">
+                <i class="ri-paypal-fill"></i> Pay with PayPal
+              </button>
+            </div>
+
+            <!-- Apple Pay panel -->
+            <div id="applePanel" class="alt-pay-panel">
+              <p
+                style="
+                  font-size: 0.88rem;
+                  color: #6b6763;
+                  margin-bottom: 1.2rem;
+                  line-height: 1.7;
+                "
+              >
+                Complete your purchase with Face ID or Touch ID via Apple Pay.
+              </p>
+              <button class="apple-btn" onclick="placeOrder()">
+                <i class="ri-apple-fill"></i> Pay with Apple Pay
+              </button>
+            </div>
+
+            <!-- Promo code -->
+            <div
+              style="
+                margin-top: 1.5rem;
+                padding-top: 1.2rem;
+                border-top: 1px solid var(--color-beige);
+              "
+            >
+              <p class="form-label" style="margin-bottom: 0.5rem">
+                Promo / gift code
+              </p>
+              <div class="promo-row">
+                <input
+                  type="text"
+                  class="promo-input"
+                  id="promoInput"
+                  placeholder="Enter code…"
+                />
+                <button class="promo-apply" onclick="applyPromo()">
+                  Apply
+                </button>
+              </div>
+              <p class="promo-success" id="promoSuccess">
+                <i class="ri-check-line"></i> Code applied — 10% off!
+              </p>
+            </div>
+
+            <!-- Place order -->
+            <button
+              class="place-order-btn"
+              id="placeOrderBtn"
+              onclick="placeOrder()"
+              style="margin-top: 1.5rem"
+            >
+              <div class="spinner"></div>
+              <span class="btn-label"
+                ><i class="ri-lock-2-line"></i> Place Order ·
+                <span id="btnTotal">$89.00</span></span
+              >
+            </button>
+
+            <p
+              style="
+                font-size: 0.76rem;
+                color: #b0a89e;
+                text-align: center;
+                margin-top: 0.8rem;
+                line-height: 1.6;
+              "
+            >
+              By placing your order you agree to our
+              <a href="./terms.html" style="color: var(--color-clay)"
+                >Terms &amp; Conditions</a
+              >. Your payment is encrypted and processed by Stripe.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- ═══════ END LEFT ═══════ -->
+
+      <!-- ═══════ RIGHT COLUMN — ORDER SUMMARY ═══════ -->
+      <aside class="order-summary">
+        <div class="summary-card">
+          <h3 class="summary-title">Order Summary</h3>
+
+          <div class="summary-items" id="summaryItems">
+            <!-- Populated from cart state or shown as static demo -->
+            <div class="summary-item">
+              <div class="summary-img-wrap">
+                <img
+                  src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+                  alt="Ceramic Tea Set"
+                  class="summary-img"
+                />
+                <span class="summary-qty">1</span>
+              </div>
+              <div style="flex: 1">
+                <p class="summary-item-name">Ceramic Tea Set</p>
+                <p class="summary-item-variant">4-piece · Pebble White</p>
+              </div>
+              <span class="summary-item-price">$89.00</span>
+            </div>
+
+            <div class="summary-item">
+              <div class="summary-img-wrap">
+                <img
+                  src="./images/featured-products/Handwoven Wool Blanket.jpg"
+                  alt="Wool Blanket"
+                  class="summary-img"
+                />
+                <span class="summary-qty">1</span>
+              </div>
+              <div style="flex: 1">
+                <p class="summary-item-name">Handwoven Wool Blanket</p>
+                <p class="summary-item-variant">Natural Oat</p>
+              </div>
+              <span class="summary-item-price">$64.00</span>
+            </div>
+          </div>
+
+          <div class="summary-totals" id="summaryTotals">
+            <div class="totals-row">
+              <span>Subtotal</span><span id="subtotalVal">$153.00</span>
+            </div>
+            <div class="totals-row saving" id="savingRow" style="display: none">
+              <span><i class="ri-price-tag-3-line"></i> Promo (10%)</span
+              ><span id="discountVal">−$0.00</span>
+            </div>
+            <div class="totals-row">
+              <span>Shipping</span><span id="shippingVal">Free</span>
+            </div>
+            <div class="totals-row">
+              <span>Tax (est.)</span><span id="taxVal">$12.24</span>
+            </div>
+            <div class="totals-row grand">
+              <span>Total</span><span id="grandTotal">$165.24</span>
+            </div>
+          </div>
+
+          <button
+            class="place-order-btn"
+            id="placeOrderBtnSide"
+            onclick="placeOrder()"
+            disabled
+            style="opacity: 0.5"
+          >
+            <span class="btn-label"
+              ><i class="ri-lock-2-line"></i> Place Order ·
+              <span id="btnTotalSide">$165.24</span></span
+            >
+          </button>
+
+          <div class="guarantee-strip">
+            <div class="guarantee-item">
+              <i class="ri-shield-check-line"></i> 30-day hassle-free returns
+            </div>
+            <div class="guarantee-item">
+              <i class="ri-truck-line"></i> Free shipping over $75
+            </div>
+            <div class="guarantee-item">
+              <i class="ri-lock-2-line"></i> 256-bit SSL encryption
+            </div>
+            <div class="guarantee-item">
+              <i class="ri-hand-heart-line"></i> Ethically made, fairly traded
+            </div>
+          </div>
+
+          <div class="accept-icons">
+            <span class="accept-icon"><i class="ri-visa-fill"></i></span>
+            <span class="accept-icon"><i class="ri-mastercard-fill"></i></span>
+            <span class="accept-icon"><i class="ri-paypal-fill"></i></span>
+            <span class="accept-icon"><i class="ri-apple-fill"></i></span>
+          </div>
+        </div>
+      </aside>
+      <!-- ═══════ END RIGHT ═══════ -->
+    </div>
+
+    <!-- ── ORDER SUCCESS OVERLAY ──────────────────────────────── -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-icon"><i class="ri-check-line"></i></div>
+      <h2>Order Confirmed!</h2>
+      <p>
+        Thank you for supporting independent artisans. Your handcrafted pieces
+        are now being prepared with care.
+      </p>
+      <p class="success-order-num" id="orderNumDisplay">Order #AC-00000</p>
+      <p style="font-size: 0.85rem; color: #9b9188">
+        A confirmation email has been sent to
+        <strong id="confirmEmail">your inbox</strong>
+      </p>
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          margin-top: 2rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        "
+      >
+        <a
+          href="./index.html"
+          class="btn btn-secondary"
+          style="font-size: 0.9rem; padding: 0.75rem 2rem"
+          >Continue Shopping</a
+        >
+        <a
+          href="./account.html"
+          class="btn btn-primary"
+          style="font-size: 0.9rem; padding: 0.75rem 2rem"
+          >Track My Order</a
+        >
+      </div>
+    </div>
+
+    <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+    <script src="./JS/checkout.js"></script>
+  </body>
+</html>
