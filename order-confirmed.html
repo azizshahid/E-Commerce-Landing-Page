@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed – Artisan Crafts</title>
+  <link rel="stylesheet" href="./CSS/styles.css" />
+  <link rel="stylesheet" href="./CSS/artisan-styles-additions.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/order_confirmed.css">  
+</head>
+<body class="confirmed-page">
+
+  <!-- ── SLIM NAV ───────────────────────────────────────────── -->
+  <nav class="confirmed-nav">
+    <a href="./index.html" class="confirmed-logo">Artisan</a>
+    <a href="./contact.html" class="nav-help"><i class="ri-customer-service-2-line"></i> Need help?</a>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <div class="confirmed-hero">
+    <div class="check-circle"><i class="ri-check-line"></i></div>
+    <h1>Thank you, <span id="heroName">James</span>!</h1>
+    <p class="sub">Your order has been received and a confirmation email is on its way. Your handcrafted pieces are now being prepared with care.</p>
+    <span class="order-num-display">Order <strong id="orderNum">AC-47291</strong></span>
+  </div>
+
+  <!-- ── CONTENT ────────────────────────────────────────────── -->
+  <div class="confirmed-wrapper">
+
+    <!-- Email notice -->
+    <div class="email-notice">
+      <i class="ri-mail-send-line"></i>
+      <p>A full confirmation has been sent to <strong id="confirmEmail">james@example.com</strong>. If you don't see it in a few minutes, check your spam folder or <a href="./contact.html" style="color:var(--color-clay);">contact us</a>.</p>
+    </div>
+
+    <!-- Order tracker -->
+    <div class="tracker-card">
+      <h3 class="tracker-title">Order Status</h3>
+
+      <div class="tracker" id="tracker">
+        <div class="tracker-fill" id="trackerFill"></div>
+
+        <div class="track-step done-step">
+          <div class="track-dot done"><i class="ri-check-line"></i></div>
+          <p class="track-label">Order placed</p>
+          <p class="track-date" id="placedDate">Today</p>
+        </div>
+
+        <div class="track-step active-step">
+          <div class="track-dot active"><i class="ri-gift-line"></i></div>
+          <p class="track-label">Being prepared</p>
+          <p class="track-date">1–2 days</p>
+        </div>
+
+        <div class="track-step">
+          <div class="track-dot pending"><i class="ri-truck-line"></i></div>
+          <p class="track-label">Shipped</p>
+          <p class="track-date" id="shipDate">—</p>
+        </div>
+
+        <div class="track-step">
+          <div class="track-dot pending"><i class="ri-home-4-line"></i></div>
+          <p class="track-label">Delivered</p>
+          <p class="track-date" id="deliverDate">—</p>
+        </div>
+      </div>
+
+      <div class="delivery-callout">
+        <i class="ri-truck-line"></i>
+        <div class="delivery-callout-text">
+          <p>Estimated delivery</p>
+          <p id="deliveryWindow">Wed 16 Apr – Fri 18 Apr</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info grid: Shipping + Payment -->
+    <div class="confirmed-grid">
+      <div class="info-card">
+        <p class="info-card-label"><i class="ri-map-pin-line"></i> Shipping to</p>
+        <p>
+          <strong id="shipName">James Lowe</strong><br />
+          <span id="shipAddress">42 Craft Lane<br />New York, NY 10001<br />United States</span>
+        </p>
+        <p style="margin-top:0.75rem;">
+          <strong style="color:#5a9e5d;"><i class="ri-check-line"></i> Standard shipping</strong><br />
+          <span style="font-size:0.8rem;">5–7 business days · USPS</span>
+        </p>
+      </div>
+
+      <div class="info-card">
+        <p class="info-card-label"><i class="ri-bank-card-line"></i> Payment</p>
+        <p>
+          <strong>Visa ending ····4242</strong><br />
+          <span id="billingEmail">james@example.com</span>
+        </p>
+        <p style="margin-top:0.75rem;">
+          <strong>Subtotal</strong> &nbsp;$153.00<br />
+          <strong>Shipping</strong> &nbsp;Free<br />
+          <strong>Tax</strong> &nbsp;$12.24<br />
+          <strong style="color:var(--color-clay); font-size:1rem;">Total &nbsp;$165.24</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Order items -->
+    <div class="items-card">
+      <div class="items-card-header">
+        <h3>Your Items</h3>
+        <span>2 items</span>
+      </div>
+
+      <div class="order-item">
+        <img src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg" alt="Ceramic Tea Set" class="order-item-img" />
+        <div class="order-item-info">
+          <p class="order-item-name">Ceramic Tea Set</p>
+          <p class="order-item-meta">4-piece · Pebble White · Qty 1</p>
+          <p class="order-item-artisan"><i class="ri-user-heart-line"></i> Made by Maria Santos, Portugal</p>
+        </div>
+        <p class="order-item-price">$89.00</p>
+      </div>
+
+      <div class="order-item">
+        <img src="./images/featured-products/Handwoven Wool Blanket.jpg" alt="Handwoven Wool Blanket" class="order-item-img" />
+        <div class="order-item-info">
+          <p class="order-item-name">Handwoven Wool Blanket</p>
+          <p class="order-item-meta">Natural Oat · Qty 1</p>
+          <p class="order-item-artisan"><i class="ri-user-heart-line"></i> Made by Rupa Sharma, India</p>
+        </div>
+        <p class="order-item-price">$64.00</p>
+      </div>
+
+      <div class="totals-block">
+        <div class="totals-line"><span>Subtotal</span><span>$153.00</span></div>
+        <div class="totals-line"><span>Shipping</span><span style="color:#5a9e5d;">Free</span></div>
+        <div class="totals-line"><span>Tax</span><span>$12.24</span></div>
+        <div class="totals-line grand"><span>Total charged</span><span>$165.24</span></div>
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="cta-row">
+      <a href="./shop.html" class="btn btn-secondary"><i class="ri-store-2-line"></i> Continue Shopping</a>
+      <a href="./account.html" class="btn btn-primary"><i class="ri-file-list-3-line"></i> View My Orders</a>
+      <a href="./contact.html" class="btn" style="background:transparent; border:1.5px solid var(--color-beige); color:#6b6763; border-radius:6px;"><i class="ri-customer-service-2-line"></i> Need Help?</a>
+    </div>
+
+    <!-- Artisan note -->
+    <div class="artisan-note">
+      <img src="./images/category/Cozy Ceramic Corner.png" alt="Maria Santos" class="artisan-note-portrait" />
+      <div class="artisan-note-text">
+        <p>A note from your maker</p>
+        <p>"Every piece I make carries a little bit of my story. I hope it brings the same warmth to your home that it brought to my studio. Thank you for supporting handmade craft." — Maria Santos</p>
+      </div>
+    </div>
+
+    <!-- Trust strip -->
+    <div style="text-align:center; padding:1rem 0 2rem;">
+      <p style="font-size:0.78rem; color:#b0a89e;">
+        <i class="ri-shield-check-line"></i> 30-day returns &nbsp;·&nbsp;
+        <i class="ri-lock-2-line"></i> Encrypted payment &nbsp;·&nbsp;
+        <i class="ri-hand-heart-line"></i> Ethically made
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <section class="section final-cta" style="padding-top:3rem;">
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Handmade Treasures</h3>
+            <p>Connecting artisans with craft lovers worldwide.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="./index.html">Home</a>
+              <a href="./shop.html">Shop</a>
+              <a href="./about.html">About Us</a>
+              <a href="./contact.html">Contact</a>
+              <a href="./terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Your Account</h4>
+            <div class="footer-links">
+              <a href="./account.html">My Orders</a>
+              <a href="./account.html">Wishlist</a>
+              <a href="./login.html">Sign In</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>We Accept</h4>
+            <div class="payment-methods">
+              <a href="#" class="payment-icon"><i class="ri-visa-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-mastercard-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-paypal-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-apple-fill"></i></a>
+            </div>
+            <p class="secure-text">Secure payments powered by Stripe</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Artisan Crafts. Made with ❤️ for artisans worldwide.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="./JS/order_confirmed.js"></script>
+</body>
+</html>
