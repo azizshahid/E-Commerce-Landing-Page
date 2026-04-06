@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In – Artisan Crafts</title>
+  <link rel="stylesheet" href="./CSS/styles.css" />
+  <link rel="stylesheet" href="./CSS/artisan-styles-additions.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/login.css">
+</head>
+<body class="login-page">
+
+  <!-- ══════ LEFT — BRAND PANEL ══════ -->
+  <div class="login-brand">
+    <div class="brand-top">
+      <a href="./index.html" class="brand-logo">Artisan</a>
+      <img src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg" alt="Handcrafted ceramics" class="brand-hero-img" />
+    </div>
+
+    <div class="brand-middle">
+      <h2>Crafted with intention.<br />Delivered with care.</h2>
+      <p>Join thousands of customers who support independent artisans and discover pieces made to last a lifetime.</p>
+
+      <ul class="brand-perks">
+        <li><i class="ri-gift-line"></i> Track orders and manage returns in one place</li>
+        <li><i class="ri-heart-line"></i> Save favourites to your personal wishlist</li>
+        <li><i class="ri-price-tag-3-line"></i> Exclusive member discounts and early access</li>
+        <li><i class="ri-truck-line"></i> Faster checkout with saved addresses</li>
+      </ul>
+    </div>
+
+    <div class="brand-quote">
+      <p>"I love knowing exactly who made my things — it makes every piece feel like a gift, not just a purchase."</p>
+      <div class="brand-quote-author">
+        <img src="./images/category/Cozy Ceramic Corner.png" alt="Sarah M." class="brand-quote-avatar" />
+        <span class="brand-quote-name">Sarah M. · Verified Buyer</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ RIGHT — FORM PANEL ══════ -->
+  <div class="login-form-panel">
+    <div class="login-box">
+
+      <!-- Header -->
+      <div class="login-box-header">
+        <h1 id="panelTitle">Welcome back</h1>
+        <p id="panelSub">Sign in to your Artisan account</p>
+      </div>
+
+      <!-- Error banner -->
+      <div class="auth-error" id="authError">
+        <i class="ri-error-warning-line"></i>
+        <span id="authErrorMsg">Incorrect email or password. Please try again.</span>
+      </div>
+
+      <!-- ── MAIN AUTH PANEL ─────────────────────────────────── -->
+      <div id="mainPanel">
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="signinTab" onclick="switchTab('signin')">Sign in</button>
+          <button class="auth-tab" id="registerTab" onclick="switchTab('register')">Create account</button>
+        </div>
+
+        <!-- Social auth -->
+        <div class="social-auth">
+          <button class="social-btn" onclick="socialAuth('Google')">
+            <!-- Google G SVG inline -->
+            <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+              <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+              <path d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z" fill="#FBBC05"/>
+              <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+            </svg>
+            Continue with Google
+          </button>
+          <button class="social-btn" onclick="socialAuth('Apple')">
+            <i class="ri-apple-fill" style="font-size:1.1rem;"></i>
+            Continue with Apple
+          </button>
+        </div>
+
+        <div class="auth-divider"><span>or continue with email</span></div>
+
+        <!-- Form -->
+        <form class="auth-form" id="authForm" onsubmit="handleSubmit(event)">
+
+          <!-- Name fields (register only) -->
+          <div class="form-row-2 register-only-grid" id="nameFields">
+            <div class="form-group">
+              <label class="form-label" for="regFirst">First name</label>
+              <input type="text" id="regFirst" class="form-input" placeholder="James" autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regLast">Last name</label>
+              <input type="text" id="regLast" class="form-input" placeholder="Lowe" autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="authEmail">Email address</label>
+            <input type="email" id="authEmail" class="form-input" placeholder="james@example.com" autocomplete="email" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="authPassword">
+              Password
+              <span class="register-only" id="passwordHint" style="font-weight:400; color:#b0a89e; margin-left:0.3rem;">min. 8 characters</span>
+            </label>
+            <div class="password-wrap">
+              <input type="password" id="authPassword" class="form-input" placeholder="••••••••"
+                autocomplete="current-password" required oninput="checkStrength(this)" />
+              <button type="button" class="password-toggle" onclick="togglePassword()" id="pwToggle">
+                <i class="ri-eye-off-line" id="pwEyeIcon"></i>
+              </button>
+            </div>
+            <!-- Strength bar (register only) -->
+            <div class="register-only" id="strengthWrap">
+              <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+              <p class="strength-label" id="strengthLabel"></p>
+            </div>
+          </div>
+
+          <!-- Confirm password (register only) -->
+          <div class="form-group register-only" id="confirmPwField">
+            <label class="form-label" for="confirmPassword">Confirm password</label>
+            <div class="password-wrap">
+              <input type="password" id="confirmPassword" class="form-input" placeholder="••••••••"
+                autocomplete="new-password" oninput="checkMatch(this)" />
+              <button type="button" class="password-toggle" onclick="toggleConfirm()">
+                <i class="ri-eye-off-line" id="confirmEyeIcon"></i>
+              </button>
+            </div>
+            <p class="strength-label" id="matchLabel"></p>
+          </div>
+
+          <!-- Sign-in meta row -->
+          <div class="form-meta-row" id="signinMeta">
+            <label class="remember-row">
+              <input type="checkbox" id="rememberMe" />
+              Remember me
+            </label>
+            <a href="#" class="forgot-link" onclick="showForgot(); return false;">Forgot password?</a>
+          </div>
+
+          <!-- Marketing opt-in (register) -->
+          <div class="form-group register-only" id="marketingField" style="margin-bottom:1.2rem;">
+            <label style="display:flex; align-items:flex-start; gap:0.6rem; cursor:pointer; font-size:0.8rem; color:#6b6763;">
+              <input type="checkbox" id="marketing" style="accent-color:var(--color-charcoal); margin-top:2px; flex-shrink:0;" />
+              Send me updates on new arrivals, artisan stories, and exclusive offers
+            </label>
+          </div>
+
+          <button type="submit" class="auth-submit" id="submitBtn">
+            <div class="spinner"></div>
+            <span class="submit-label" id="submitLabel">
+              <i class="ri-login-circle-line"></i> Sign in
+            </span>
+          </button>
+
+          <p class="switch-prompt" id="switchPrompt">
+            Don't have an account? <a onclick="switchTab('register')">Create one</a>
+          </p>
+
+          <p class="auth-legal" id="legalText">
+            By signing in you agree to our <a href="./terms.html">Terms &amp; Conditions</a> and <a href="./terms.html#privacy">Privacy Policy</a>.
+          </p>
+        </form>
+
+        <!-- Success state -->
+        <div class="auth-success" id="authSuccess">
+          <div class="auth-success-icon"><i class="ri-check-line"></i></div>
+          <h3 id="successTitle">Signed in!</h3>
+          <p id="successSub">Redirecting you to your account…</p>
+          <a href="./account.html" class="btn btn-primary" style="font-size:0.9rem; padding:0.75rem 2rem; margin-top:0.5rem; border-radius:6px;">Go to My Account</a>
+        </div>
+
+      </div>
+
+      <!-- ── FORGOT PASSWORD PANEL ───────────────────────────── -->
+      <div id="forgotPanel" class="forgot-panel">
+        <button class="back-to-login" onclick="hideForgot()">
+          <i class="ri-arrow-left-s-line"></i> Back to sign in
+        </button>
+
+        <div class="login-box-header" style="margin-bottom:1.4rem;">
+          <h1 style="font-size:1.5rem;">Reset your password</h1>
+          <p>Enter the email address on your account and we'll send a reset link.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="resetEmail">Email address</label>
+          <input type="email" id="resetEmail" class="form-input" placeholder="james@example.com" />
+        </div>
+
+        <button class="auth-submit" onclick="sendReset()" id="resetBtn" type="button">
+          <div class="spinner"></div>
+          <span class="submit-label"><i class="ri-mail-send-line"></i> Send reset link</span>
+        </button>
+
+        <div id="resetSuccess" style="display:none; text-align:center; margin-top:1.4rem;">
+          <p style="font-size:0.88rem; color:#5a9e5d;"><i class="ri-check-line"></i> Reset link sent to <strong id="resetEmailDisplay"></strong></p>
+          <p style="font-size:0.8rem; color:#9b9188; margin-top:0.4rem;">Check your inbox and spam folder.</p>
+        </div>
+
+        <p class="auth-legal" style="margin-top:1rem;">
+          Remember your password? <a href="#" onclick="hideForgot(); return false;" style="color:var(--color-clay);">Sign in</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+ <script src="./JS/login.js"></script>
+</body>
+</html>
