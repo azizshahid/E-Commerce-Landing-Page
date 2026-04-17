@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart – Artisan Crafts</title>
+  <meta name="description" content="Review your cart and proceed to secure checkout." />
+  <link rel="stylesheet" href="./CSS/styles.css" />
+  <link rel="stylesheet" href="./CSS/artisan-styles-additions.css" />
+  <link rel="stylesheet" href="./CSS/cart.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header>
+    <nav class="header-nav">
+      <div class="logo-container">
+        <a href="./index.html" class="logo">Artisan</a>
+      </div>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="#" class="nav-link">Home Decor <span class="nav-arrow">▾</span></a>
+          <div class="dropdown">
+            <a href="./shop.html?cat=wall-art">Wall Art</a>
+            <a href="./shop.html?cat=ceramics">Ceramics</a>
+            <a href="./shop.html?cat=lighting">Lighting</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link">Art <span class="nav-arrow">▾</span></a>
+          <div class="dropdown">
+            <a href="./shop.html?cat=paintings">Paintings</a>
+            <a href="./shop.html?cat=sculptures">Sculptures</a>
+            <a href="./shop.html?cat=prints">Prints</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link">Pet Supplies <span class="nav-arrow">▾</span></a>
+          <div class="dropdown">
+            <a href="./shop.html?cat=beds">Beds</a>
+            <a href="./shop.html?cat=bowls">Bowls</a>
+            <a href="./shop.html?cat=toys">Toys</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="./shop.html" class="nav-link">Shop</a></div>
+        <div class="nav-item"><a href="./about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></div>
+      </div>
+      <div class="search-container">
+        <input type="search" placeholder="Search for anything" aria-label="Search" class="search-input" />
+        <button class="search-btn">🔍</button>
+      </div>
+      <div class="cust-panel">
+        <div class="cust-icon" onclick="location.href='./login.html'" title="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"/>
+          </svg>
+        </div>
+        <div class="cust-icon cart-icon" onclick="location.href='./cart.html'" title="Cart" style="background:#f0ebe5;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"/>
+          </svg>
+          <span class="cart-count" id="cartCount">2</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── BREADCRUMB ─────────────────────────────────────────── -->
+  <div style="background:var(--color-white); border-bottom:1px solid var(--color-beige); padding:0.65rem 4rem;">
+    <p style="font-size:0.8rem; color:#9b9188; max-width:1200px; margin:0 auto;">
+      <a href="./index.html" style="color:var(--color-clay); text-decoration:none;">Home</a>
+      <span style="margin:0 6px;">›</span> Cart
+    </p>
+  </div>
+
+  <!-- ── CART PAGE ──────────────────────────────────────────── -->
+  <div class="cart-page-wrapper">
+
+    <!-- Heading -->
+    <div class="cart-heading">
+      <h1>Your Cart</h1>
+      <span class="item-count" id="pageItemCount">2 items</span>
+    </div>
+
+    <!-- ── LEFT: ITEMS ─────────────────────────────────────── -->
+    <div class="cart-items-col" id="cartItemsCol">
+
+      <!-- Item 1 -->
+      <div class="cart-line reveal" id="line-1">
+        <img src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg"
+          alt="Ceramic Tea Set" class="cart-line-img"
+          onclick="location.href='./product.html'" />
+        <div class="cart-line-body">
+          <a href="./product.html" class="cart-line-name">Ceramic Tea Set</a>
+          <p class="cart-line-meta">4-piece · Pebble White</p>
+          <p class="cart-line-artisan"><i class="ri-user-heart-line"></i> Maria Santos · Portugal</p>
+          <div class="qty-stepper">
+            <button onclick="changeQty('line-1', -1, 89)" aria-label="Decrease">−</button>
+            <span id="qty-line-1">1</span>
+            <button onclick="changeQty('line-1', 1, 89)" aria-label="Increase">+</button>
+          </div>
+        </div>
+        <div class="cart-line-right">
+          <p class="cart-line-price" id="price-line-1">$89.00</p>
+          <p class="cart-line-unit">$89.00 each</p>
+          <button class="save-later" onclick="saveLater('line-1')"><i class="ri-heart-line"></i> Save for later</button>
+          <button class="cart-remove" onclick="removeLine('line-1')"><i class="ri-delete-bin-6-line"></i> Remove</button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="cart-line reveal" id="line-2">
+        <img src="./images/featured-products/Handwoven Wool Blanket.jpg"
+          alt="Handwoven Wool Blanket" class="cart-line-img"
+          onclick="location.href='./product.html'" />
+        <div class="cart-line-body">
+          <a href="./product.html" class="cart-line-name">Handwoven Wool Blanket</a>
+          <p class="cart-line-meta">Natural Oat</p>
+          <p class="cart-line-artisan"><i class="ri-user-heart-line"></i> Rupa Sharma · India</p>
+          <div class="qty-stepper">
+            <button onclick="changeQty('line-2', -1, 64)" aria-label="Decrease">−</button>
+            <span id="qty-line-2">1</span>
+            <button onclick="changeQty('line-2', 1, 64)" aria-label="Increase">+</button>
+          </div>
+        </div>
+        <div class="cart-line-right">
+          <p class="cart-line-price" id="price-line-2">$64.00</p>
+          <p class="cart-line-unit">$64.00 each</p>
+          <button class="save-later" onclick="saveLater('line-2')"><i class="ri-heart-line"></i> Save for later</button>
+          <button class="cart-remove" onclick="removeLine('line-2')"><i class="ri-delete-bin-6-line"></i> Remove</button>
+        </div>
+      </div>
+
+      <a href="./shop.html" class="continue-shopping">
+        <i class="ri-arrow-left-s-line"></i> Continue shopping
+      </a>
+
+    </div>
+
+    <!-- ── RIGHT: SUMMARY ──────────────────────────────────── -->
+    <aside class="cart-summary-col">
+      <div class="cart-summary-card">
+        <h3 class="summary-card-title">Order Summary</h3>
+
+        <div class="summary-row"><span>Subtotal (<span id="summaryCount">2</span> items)</span><span id="summarySubtotal">$153.00</span></div>
+        <div class="summary-row free-ship"><span><i class="ri-truck-line"></i> Standard shipping</span><span>Free</span></div>
+        <div class="summary-row" id="discountRow" style="display:none;"><span><i class="ri-price-tag-3-line"></i> Promo discount</span><span id="discountAmt" style="color:#5a9e5d;">−$0.00</span></div>
+        <div class="summary-row"><span>Tax (estimated)</span><span id="summaryTax">$12.24</span></div>
+        <div class="summary-row grand"><span>Estimated total</span><span id="summaryGrand">$165.24</span></div>
+
+        <!-- Promo -->
+        <div class="promo-wrap">
+          <input type="text" class="promo-field" id="promoField" placeholder="Promo or gift code" />
+          <button class="promo-btn" onclick="applyPromo()">Apply</button>
+        </div>
+        <p class="promo-msg" id="promoMsg"></p>
+
+        <!-- CTA -->
+        <a href="./checkout.html" class="checkout-cta">
+          <i class="ri-lock-2-line"></i> Proceed to Checkout
+        </a>
+
+        <!-- Trust -->
+        <div class="summary-trust">
+          <div class="summary-trust-item"><i class="ri-shield-check-line"></i> 30-day hassle-free returns</div>
+          <div class="summary-trust-item"><i class="ri-truck-line"></i> Free shipping on orders over $75</div>
+          <div class="summary-trust-item"><i class="ri-lock-2-line"></i> Secure 256-bit SSL encryption</div>
+          <div class="summary-trust-item"><i class="ri-hand-heart-line"></i> Ethically made, fairly traded</div>
+        </div>
+
+        <!-- Payment icons -->
+        <div class="summary-pay-icons">
+          <span class="pay-chip"><i class="ri-visa-fill"></i></span>
+          <span class="pay-chip"><i class="ri-mastercard-fill"></i></span>
+          <span class="pay-chip"><i class="ri-paypal-fill"></i></span>
+          <span class="pay-chip"><i class="ri-apple-fill"></i></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── RECOMMENDATIONS ─────────────────────────────────── -->
+    <div class="recommendations">
+      <h2>You Might Also Like</h2>
+      <p class="product-trust">Based on items in your cart</p>
+      <div class="carousel" id="recCarousel">
+        <div class="carousel-track" style="padding-right:2rem;">
+
+          <div class="product-card" onclick="location.href='./product.html'" style="flex:0 0 28%; cursor:pointer;">
+            <img src="./images/category/Cozy Ceramic Corner.png" alt="Cozy Ceramic Set" class="product-image"/>
+            <div class="product-info">
+              <div class="info"><h3 class="product-name">Cozy Ceramic Set</h3><p>Limited Batch</p></div>
+              <p class="product-price">$72.00</p>
+              <div class="product-rating"><span class="stars">★★★★★</span><span>(156)</span></div>
+              <div class="product-button"><button class="add-to-cart" onclick="event.stopPropagation(); quickAdd('Cozy Ceramic Set', 72, './images/category/Cozy Ceramic Corner.png')">Add to Cart</button></div>
+            </div>
+          </div>
+
+          <div class="product-card" onclick="location.href='./product.html'" style="flex:0 0 28%; cursor:pointer;">
+            <img src="./images/category/Handmade Jewelry Display.png" alt="Silver Necklace" class="product-image"/>
+            <div class="product-info">
+              <div class="info"><h3 class="product-name">Silver Necklace</h3><p>Best Seller</p></div>
+              <p class="product-price">$118.00</p>
+              <div class="product-rating"><span class="stars">★★★★★</span><span>(203)</span></div>
+              <div class="product-button"><button class="add-to-cart" onclick="event.stopPropagation(); quickAdd('Silver Necklace', 118, './images/category/Handmade Jewelry Display.png')">Add to Cart</button></div>
+            </div>
+          </div>
+
+          <div class="product-card" onclick="location.href='./product.html'" style="flex:0 0 28%; cursor:pointer;">
+            <img src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png" alt="Botanical Tote Bag" class="product-image"/>
+            <div class="product-info">
+              <div class="info"><h3 class="product-name">Botanical Tote Bag</h3><p>New Arrival</p></div>
+              <p class="product-price">$48.00</p>
+              <div class="product-rating"><span class="stars">★★★★★</span><span>(41)</span></div>
+              <div class="product-button"><button class="add-to-cart" onclick="event.stopPropagation(); quickAdd('Botanical Tote Bag', 48, './images/featured-products/Botanical Tote in Sunlit Entryway1.png')">Add to Cart</button></div>
+            </div>
+          </div>
+
+          <div class="product-card" onclick="location.href='./product.html'" style="flex:0 0 28%; cursor:pointer;">
+            <img src="./images/category/Bohemian Dresses in Sunlight.png" alt="Bohemian Dress" class="product-image"/>
+            <div class="product-info">
+              <div class="info"><h3 class="product-name">Bohemian Dress</h3><p>Best Seller</p></div>
+              <p class="product-price">$96.00</p>
+              <div class="product-rating"><span class="stars">★★★★☆</span><span>(74)</span></div>
+              <div class="product-button"><button class="add-to-cart" onclick="event.stopPropagation(); quickAdd('Bohemian Dress', 96, './images/category/Bohemian Dresses in Sunlight.png')">Add to Cart</button></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <section class="section final-cta" style="margin-top:2rem;">
+    <h2>Need Help With Your Order?</h2>
+    <p>Our team responds within one business day</p>
+    <a href="./contact.html" class="btn btn-primary">Contact Us</a>
+    <p class="trust-text">Free shipping over $75 &bull; 30-day returns &bull; Secure checkout</p>
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Handmade Treasures</h3>
+            <p>Connecting artisans with craft lovers worldwide.</p>
+            <div class="social-icons" style="margin-left:0;">
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-facebook-fill" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-instagram-line" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-twitter-x-line" style="font-size:1rem;color:#333"></i></a>
+              <a href="#" class="icon-circle icon-circle--sm"><i class="ri-pinterest-fill" style="font-size:1rem;color:#333"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="./index.html">Home</a>
+              <a href="./shop.html">Shop</a>
+              <a href="./about.html">About Us</a>
+              <a href="./contact.html">Contact</a>
+              <a href="./terms.html">Terms &amp; Conditions</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Your Account</h4>
+            <div class="footer-links">
+              <a href="./account.html">My Orders</a>
+              <a href="./account.html">Wishlist</a>
+              <a href="./login.html">Sign In</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>We Accept</h4>
+            <div class="payment-methods">
+              <a href="#" class="payment-icon"><i class="ri-visa-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-mastercard-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-paypal-fill"></i></a>
+              <a href="#" class="payment-icon"><i class="ri-apple-fill"></i></a>
+            </div>
+            <p class="secure-text">Secure payments powered by Stripe</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Artisan Crafts. Made with ❤️ for artisans worldwide.</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script src="./JS/cart.js"></script>
+  <script src="./index.js"></script>
+  
+
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account – Artisan Crafts</title>
+  <meta name="description" content="Manage your orders, wishlist, and account details." />
+  <link rel="stylesheet" href="./CSS/styles.css" />
+  <link rel="stylesheet" href="./CSS/artisan-styles-additions.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/account.css">
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header>
+    <nav class="header-nav">
+      <div class="logo-container">
+        <a href="./index.html" class="logo">Artisan</a>
+      </div>
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="#" class="nav-link">Home Decor <span class="nav-arrow">▾</span></a>
+          <div class="dropdown">
+            <a href="./shop.html?cat=wall-art">Wall Art</a>
+            <a href="./shop.html?cat=ceramics">Ceramics</a>
+            <a href="./shop.html?cat=lighting">Lighting</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link">Art <span class="nav-arrow">▾</span></a>
+          <div class="dropdown">
+            <a href="./shop.html?cat=paintings">Paintings</a>
+            <a href="./shop.html?cat=sculptures">Sculptures</a>
+            <a href="./shop.html?cat=prints">Prints</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#" class="nav-link">Pet Supplies <span class="nav-arrow">▾</span></a>
+          <div class="dropdown">
+            <a href="./shop.html?cat=beds">Beds</a>
+            <a href="./shop.html?cat=bowls">Bowls</a>
+            <a href="./shop.html?cat=toys">Toys</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="./shop.html" class="nav-link">Shop</a></div>
+        <div class="nav-item"><a href="./about.html" class="nav-link">About</a></div>
+        <div class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></div>
+      </div>
+      <div class="search-container">
+        <input type="search" placeholder="Search for anything" aria-label="Search" class="search-input" />
+        <button class="search-btn">🔍</button>
+      </div>
+      <div class="cust-panel">
+        <div class="cust-icon" onclick="location.href='./account.html'" title="Account" style="background:#f0ebe5;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14V16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"/>
+          </svg>
+        </div>
+        <div class="cust-icon cart-icon" onclick="toggleCart()" title="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM6.00436 7.00265V13.0027H17.5163L19.3163 7.00265H6.00436ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── BREADCRUMB ─────────────────────────────────────────── -->
+  <div style="background:var(--color-white); border-bottom:1px solid var(--color-beige); padding:0.65rem 4rem;">
+    <p style="font-size:0.8rem; color:#9b9188; max-width:1200px; margin:0 auto;">
+      <a href="./index.html" style="color:var(--color-clay); text-decoration:none;">Home</a>
+      <span style="margin:0 6px;">›</span> My Account
+    </p>
+  </div>
+
+  <!-- ── ACCOUNT WRAPPER ────────────────────────────────────── -->
+  <div class="account-wrapper">
+
+    <!-- ══════ SIDEBAR ══════ -->
+    <aside class="account-sidebar">
+
+      <!-- User card -->
+      <div class="account-user-card">
+        <div class="account-avatar">JL</div>
+        <div>
+          <p class="account-name">James Lowe</p>
+          <p class="account-email">james@example.com</p>
+          <p class="account-member-since"><i class="ri-vip-crown-line"></i> Member since Jan 2023</p>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <nav class="account-nav">
+        <button class="account-nav-item active" onclick="showPanel('overview', this)">
+          <i class="ri-dashboard-line"></i> Overview
+        </button>
+        <button class="account-nav-item" onclick="showPanel('orders', this)">
+          <i class="ri-file-list-3-line"></i> My Orders
+          <span class="nav-badge">3</span>
+        </button>
+        <button class="account-nav-item" onclick="showPanel('wishlist', this)">
+          <i class="ri-heart-line"></i> Wishlist
+          <span class="nav-badge">4</span>
+        </button>
+        <button class="account-nav-item" onclick="showPanel('details', this)">
+          <i class="ri-user-settings-line"></i> Account Details
+        </button>
+        <button class="account-nav-item" onclick="showPanel('addresses', this)">
+          <i class="ri-map-pin-line"></i> Addresses
+        </button>
+        <button class="account-nav-item" onclick="showPanel('notifications', this)">
+          <i class="ri-notification-3-line"></i> Notifications
+        </button>
+        <button class="account-nav-item danger" onclick="signOut()">
+          <i class="ri-logout-box-r-line"></i> Sign Out
+        </button>
+      </nav>
+
+    </aside>
+
+    <!-- ══════ MAIN ══════ -->
+    <main class="account-main">
+
+      <!-- ── OVERVIEW ────────────────────────────────────────── -->
+      <div class="account-panel active" id="panel-overview">
+        <div class="panel-header">
+          <h2 class="panel-title">Welcome back, James</h2>
+          <a href="./shop.html" class="btn btn-secondary" style="font-size:0.82rem; padding:0.55rem 1.4rem; border-radius:6px;">Shop Now</a>
+        </div>
+
+        <div class="overview-stats">
+          <div class="stat-card">
+            <p class="stat-num">7</p>
+            <p class="stat-label">Total Orders</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-num">4</p>
+            <p class="stat-label">Wishlist Items</p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-num">$612</p>
+            <p class="stat-label">Total Spent</p>
+          </div>
+        </div>
+
+        <h3 style="font-family:var(--font-serif); font-size:1.1rem; color:var(--color-charcoal); margin-bottom:1rem;">Recent Orders</h3>
+
+        <div class="recent-order-card reveal" onclick="showPanel('orders', document.querySelector('[onclick*=orders]'))">
+          <img src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg" alt="Ceramic Tea Set" class="recent-order-img" />
+          <div class="recent-order-info">
+            <p class="recent-order-num">Order #AC-47291</p>
+            <p class="recent-order-meta">2 items · $165.24 · Apr 10, 2024</p>
+          </div>
+          <span class="order-status-pill status-delivered">Delivered</span>
+        </div>
+
+        <div class="recent-order-card reveal" onclick="showPanel('orders', document.querySelector('[onclick*=orders]'))">
+          <img src="./images/category/Handmade Jewelry Display.png" alt="Silver Necklace" class="recent-order-img" />
+          <div class="recent-order-info">
+            <p class="recent-order-num">Order #AC-44088</p>
+            <p class="recent-order-meta">1 item · $118.00 · Mar 22, 2024</p>
+          </div>
+          <span class="order-status-pill status-delivered">Delivered</span>
+        </div>
+
+        <div class="recent-order-card reveal" onclick="showPanel('orders', document.querySelector('[onclick*=orders]'))">
+          <img src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png" alt="Botanical Tote" class="recent-order-img" />
+          <div class="recent-order-info">
+            <p class="recent-order-num">Order #AC-51034</p>
+            <p class="recent-order-meta">1 item · $48.00 · Apr 15, 2024</p>
+          </div>
+          <span class="order-status-pill status-preparing">Preparing</span>
+        </div>
+      </div>
+
+      <!-- ── ORDERS ───────────────────────────────────────────── -->
+      <div class="account-panel" id="panel-orders">
+        <div class="panel-header">
+          <h2 class="panel-title">My Orders</h2>
+        </div>
+
+        <div class="order-filter-tabs">
+          <button class="order-tab active" onclick="filterOrders('all', this)">All (7)</button>
+          <button class="order-tab" onclick="filterOrders('delivered', this)">Delivered (5)</button>
+          <button class="order-tab" onclick="filterOrders('preparing', this)">Preparing (1)</button>
+          <button class="order-tab" onclick="filterOrders('shipped', this)">Shipped (1)</button>
+        </div>
+
+        <!-- Order 1 -->
+        <div class="order-card reveal" data-status="preparing">
+          <div class="order-card-header">
+            <div>
+              <p class="order-card-id">Order #AC-51034</p>
+              <p class="order-card-date">Placed 15 Apr 2024</p>
+            </div>
+            <div class="order-card-actions">
+              <span class="order-status-pill status-preparing">Preparing</span>
+              <button class="order-action-btn" onclick="trackOrder('AC-51034')"><i class="ri-map-pin-line"></i> Track</button>
+              <button class="order-action-btn"><i class="ri-customer-service-2-line"></i> Help</button>
+            </div>
+          </div>
+          <div class="order-card-body">
+            <div class="order-item-row">
+              <img src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png" alt="Botanical Tote" class="order-item-thumb" />
+              <div class="order-item-detail">
+                <p class="order-item-n">Botanical Tote Bag</p>
+                <p class="order-item-m">Natural · Qty 1</p>
+              </div>
+              <p class="order-item-p">$48.00</p>
+            </div>
+          </div>
+          <div class="order-card-footer">
+            <span>Est. delivery: <strong>Apr 20–22, 2024</strong></span>
+            <span class="order-total-line">Total: $48.00</span>
+          </div>
+        </div>
+
+        <!-- Order 2 -->
+        <div class="order-card reveal" data-status="delivered">
+          <div class="order-card-header">
+            <div>
+              <p class="order-card-id">Order #AC-47291</p>
+              <p class="order-card-date">Placed 10 Apr 2024</p>
+            </div>
+            <div class="order-card-actions">
+              <span class="order-status-pill status-delivered">Delivered</span>
+              <button class="order-action-btn" onclick="location.href='./order-confirmed.html'"><i class="ri-eye-line"></i> View</button>
+              <button class="order-action-btn" onclick="reorder()"><i class="ri-refresh-line"></i> Reorder</button>
+            </div>
+          </div>
+          <div class="order-card-body">
+            <div class="order-item-row">
+              <img src="./images/featured-products/Hand-painted Ceramic Tea Set.jpg" alt="Ceramic Tea Set" class="order-item-thumb" />
+              <div class="order-item-detail">
+                <p class="order-item-n">Ceramic Tea Set</p>
+                <p class="order-item-m">4-piece · Pebble White · Qty 1</p>
+              </div>
+              <p class="order-item-p">$89.00</p>
+            </div>
+            <div class="order-item-row">
+              <img src="./images/featured-products/Handwoven Wool Blanket.jpg" alt="Wool Blanket" class="order-item-thumb" />
+              <div class="order-item-detail">
+                <p class="order-item-n">Handwoven Wool Blanket</p>
+                <p class="order-item-m">Natural Oat · Qty 1</p>
+              </div>
+              <p class="order-item-p">$64.00</p>
+            </div>
+          </div>
+          <div class="order-card-footer">
+            <span>Delivered on <strong>Apr 16, 2024</strong></span>
+            <span class="order-total-line">Total: $165.24</span>
+          </div>
+        </div>
+
+        <!-- Order 3 -->
+        <div class="order-card reveal" data-status="delivered">
+          <div class="order-card-header">
+            <div>
+              <p class="order-card-id">Order #AC-44088</p>
+              <p class="order-card-date">Placed 22 Mar 2024</p>
+            </div>
+            <div class="order-card-actions">
+              <span class="order-status-pill status-delivered">Delivered</span>
+              <button class="order-action-btn"><i class="ri-eye-line"></i> View</button>
+              <button class="order-action-btn" onclick="reorder()"><i class="ri-refresh-line"></i> Reorder</button>
+            </div>
+          </div>
+          <div class="order-card-body">
+            <div class="order-item-row">
+              <img src="./images/category/Handmade Jewelry Display.png" alt="Silver Necklace" class="order-item-thumb" />
+              <div class="order-item-detail">
+                <p class="order-item-n">Silver Necklace</p>
+                <p class="order-item-m">Sterling · Qty 1</p>
+              </div>
+              <p class="order-item-p">$118.00</p>
+            </div>
+          </div>
+          <div class="order-card-footer">
+            <span>Delivered on <strong>Mar 29, 2024</strong></span>
+            <span class="order-total-line">Total: $118.00</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── WISHLIST ──────────────────────────────────────────── -->
+      <div class="account-panel" id="panel-wishlist">
+        <div class="panel-header">
+          <h2 class="panel-title">My Wishlist</h2>
+          <span style="font-size:0.82rem; color:#9b9188;">4 saved items</span>
+        </div>
+
+        <div class="wishlist-grid">
+
+          <div class="wishlist-card reveal" onclick="location.href='./product.html'">
+            <div class="wishlist-img-wrap">
+              <img src="./images/category/Cozy Ceramic Corner.png" alt="Cozy Ceramic Set" class="wishlist-img" />
+              <button class="wishlist-remove" onclick="event.stopPropagation(); removeWishlist(this)" title="Remove"><i class="ri-heart-fill"></i></button>
+            </div>
+            <div class="wishlist-card-body">
+              <p class="wishlist-card-name">Cozy Ceramic Set</p>
+              <p class="wishlist-card-price">$72.00</p>
+              <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Cozy Ceramic Set', 72, './images/category/Cozy Ceramic Corner.png')">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="wishlist-card reveal" onclick="location.href='./product.html'">
+            <div class="wishlist-img-wrap">
+              <img src="./images/category/Bohemian Dresses in Sunlight.png" alt="Bohemian Dress" class="wishlist-img" />
+              <button class="wishlist-remove" onclick="event.stopPropagation(); removeWishlist(this)" title="Remove"><i class="ri-heart-fill"></i></button>
+            </div>
+            <div class="wishlist-card-body">
+              <p class="wishlist-card-name">Bohemian Dress</p>
+              <p class="wishlist-card-price">$96.00</p>
+              <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Bohemian Dress', 96, './images/category/Bohemian Dresses in Sunlight.png')">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="wishlist-card reveal" onclick="location.href='./product.html'">
+            <div class="wishlist-img-wrap">
+              <img src="./images/category/Handmade Jewelry Display.png" alt="Silver Necklace" class="wishlist-img" />
+              <button class="wishlist-remove" onclick="event.stopPropagation(); removeWishlist(this)" title="Remove"><i class="ri-heart-fill"></i></button>
+            </div>
+            <div class="wishlist-card-body">
+              <p class="wishlist-card-name">Silver Necklace</p>
+              <p class="wishlist-card-price">$118.00</p>
+              <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Silver Necklace', 118, './images/category/Handmade Jewelry Display.png')">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="wishlist-card reveal" onclick="location.href='./product.html'">
+            <div class="wishlist-img-wrap">
+              <img src="./images/featured-products/Botanical Tote in Sunlit Entryway1.png" alt="Botanical Tote" class="wishlist-img" />
+              <button class="wishlist-remove" onclick="event.stopPropagation(); removeWishlist(this)" title="Remove"><i class="ri-heart-fill"></i></button>
+            </div>
+            <div class="wishlist-card-body">
+              <p class="wishlist-card-name">Botanical Tote Bag</p>
+              <p class="wishlist-card-price">$48.00</p>
+              <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Botanical Tote Bag', 48, './images/featured-products/Botanical Tote in Sunlit Entryway1.png')">Add to Cart</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── ACCOUNT DETAILS ──────────────────────────────────── -->
+      <div class="account-panel" id="panel-details">
+        <div class="panel-header">
+          <h2 class="panel-title">Account Details</h2>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-section-title">Personal Information</p>
+          <div class="settings-field">
+            <span class="settings-field-label">First name</span>
+            <span class="settings-field-value" id="fieldFirstName">James</span>
+            <button class="settings-edit-btn" onclick="editField('fieldFirstName')">Edit</button>
+          </div>
+          <div class="settings-field">
+            <span class="settings-field-label">Last name</span>
+            <span class="settings-field-value" id="fieldLastName">Lowe</span>
+            <button class="settings-edit-btn" onclick="editField('fieldLastName')">Edit</button>
+          </div>
+          <div class="settings-field">
+            <span class="settings-field-label">Email</span>
+            <span class="settings-field-value" id="fieldEmail">james@example.com</span>
+            <button class="settings-edit-btn" onclick="editField('fieldEmail')">Edit</button>
+          </div>
+          <div class="settings-field">
+            <span class="settings-field-label">Phone</span>
+            <span class="settings-field-value" id="fieldPhone">(555) 123-4567</span>
+            <button class="settings-edit-btn" onclick="editField('fieldPhone')">Edit</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-section-title">Password & Security</p>
+          <div class="settings-field">
+            <span class="settings-field-label">Password</span>
+            <span class="settings-field-value">••••••••••</span>
+            <button class="settings-edit-btn" onclick="alert('Password reset email sent!')">Change</button>
+          </div>
+          <div class="settings-field">
+            <span class="settings-field-label">Two-factor auth</span>
+            <span class="settings-field-value" style="color:#9b9188;">Not enabled</span>
+            <button class="settings-edit-btn">Enable</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-section-title">Danger Zone</p>
+          <div class="settings-field">
+            <div>
+              <span class="settings-field-value" style="color:#c0504d; font-weight:600;">Delete account</span>
+              <p style="font-size:0.76rem; color:#9b9188; margin-top:0.15rem;">This action cannot be undone.</p>
+            </div>
+            <button class="settings-edit-btn" style="color:#c0504d;" onclick="if(confirm('Are you sure? This cannot be undone.')) alert('Account deletion requested.')">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ADDRESSES ────────────────────────────────────────── -->
+      <div class="account-panel" id="panel-addresses">
+        <div class="panel-header">
+          <h2 class="panel-title">Saved Addresses</h2>
+          <button class="btn btn-secondary" style="font-size:0.82rem; padding:0.55rem 1.2rem; border-radius:6px;" onclick="alert('Add address form coming soon.')">+ Add New</button>
+        </div>
+
+        <div class="address-cards">
+          <div class="address-card default-addr">
+            <span class="address-default-tag">Default</span><br/>
+            <strong>James Lowe</strong><br/>
+            42 Craft Lane<br/>
+            Artisan Quarter, NY 10001<br/>
+            United States
+            <div class="address-card-actions">
+              <button onclick="alert('Edit address')">Edit</button>
+              <button>Set as default</button>
+            </div>
+          </div>
+          <div class="address-card">
+            <strong>James Lowe</strong><br/>
+            15 Studio Road<br/>
+            Brooklyn, NY 11201<br/>
+            United States
+            <div class="address-card-actions">
+              <button onclick="alert('Edit address')">Edit</button>
+              <button>Set as default</button>
+              <button style="color:#c0504d;">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NOTIFICATIONS ────────────────────────────────────── -->
+      <div class="account-panel" id="panel-notifications">
+        <div class="panel-header">
+          <h2 class="panel-title">Notification Preferences</h2>
+        </div>
+
+        <div class="settings-section">
+          <p class="settings-section-title">Email Notifications</p>
+
+          <div class="notif-row">
+            <div><p class="notif-label">Order updates</p><p class="notif-sub">Shipping, delivery, and status changes</p></div>
+            <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+          </div>
+          <div class="notif-row">
+            <div><p class="notif-label">Promotions &amp; offers</p><p class="notif-sub">Discounts, seasonal sales, member-only deals</p></div>
+            <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+          </div>
+          <div class="notif-row">
+            <div><p class="notif-label">New arrivals</p><p class="notif-sub">New artisan products and collections</p></div>
+            <label class="toggle-switch"><input type="checkbox" /><span class="toggle-slider"></span></label>
+          </div>
+          <div class="notif-row">
+            <div><p class="notif-label">Artisan stories</p><p class="notif-sub">Behind-the-scenes from our makers</p></div>
+            <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+          </div>
+          <div class="notif-row">
+            <div><p class="notif-label">Wishlist price drops</p><p class="notif-sub">Get notified when saved items go on sale</p></div>
+            <label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+          </div>
+        </div>
+
+        <button class="form-submit" onclick="this.innerHTML='<i class=\'ri-check-line\'></i> Saved!'; this.style.background='#2d6e32'; setTimeout(()=>{this.innerHTML=\'Save Preferences\';this.style.background=\'\';},2000)">
+          Save Preferences
+        </button> //need to move this functionality to JS with event listner
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── CART MODAL ─────────────────────────────────────────── -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-cart" onclick="toggleCart()">×</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="empty-cart">Your cart is empty</div>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display:none;">
+        <div class="cart-total"><span>Total:</span><span id="cartTotal">$0.00</span></div>
+        <a href="./cart.html" class="btn btn-primary" style="width:100%; text-align:center; display:block;">Review Cart &amp; Checkout</a>
+        <p class="cart-trust">Secure checkout • 30-day returns • Free shipping over $75</p>
+      </div>
+    </div>
+  </div>
+  <script src="./JS/account.js"></script>
+  <script src="./index.js"></script>
+
+</body>
+</html>
